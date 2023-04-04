@@ -6,23 +6,21 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JButton;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JTextField;
-import java.awt.SystemColor;
 import javax.swing.JLabel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
 import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JSeparator;
 
 public class AhorcadoMain extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnA, btnB, btnC, btnD, btnE, btnF, btnG, btnH, btnI, btnJ, btnK, btnL, btnM, btnN, btnNY, btnO,
 			btnP, btnQ, btnR, btnS, btnT, btnU, btnV, btnW, btnX, btnY, btnZ;
+	private JSeparator separator;
+	private JSeparator separator_1;
+	
 
 	public AhorcadoMain() {
 		setTitle("Juego del ahorcado!");
@@ -52,9 +50,9 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 
 		JPanel panel = new JPanel();
 		panel.setBorder(new EmptyBorder(0, 0, 0, 0));
-		panel.setBounds(10, 71, 279, 214);
+		panel.setBounds(10, 71, 279, 188);
 		panel_3.add(panel);
-		panel.setLayout(new MigLayout("", "[53px][51px][53px][49px][51px]", "[23px][23px][23px][23px][23px][23px]"));
+		panel.setLayout(new MigLayout("", "[53px][51px][53px][49px][51px]", "[23px][23px][23px][23px][23px][23px][]"));
 
 		btnA = new JButton("A");
 		btnA.addActionListener(this);
@@ -163,11 +161,19 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 		btnZ = new JButton("Z");
 		btnZ.addActionListener(this);
 		panel.add(btnZ, "cell 1 5,growx,aligny center");
-
-		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Teclado");
-		lblNewJgoodiesLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewJgoodiesLabel.setBounds(20, 38, 92, 22);
-		panel_3.add(lblNewJgoodiesLabel);
+		
+		separator = new JSeparator();
+		separator.setBounds(20, 57, 252, 7);
+		panel_3.add(separator);
+		
+		separator_1 = new JSeparator();
+		separator_1.setBounds(20, 270, 252, 2);
+		panel_3.add(separator_1);
+		
+		JLabel lblNewLabel = new JLabel("Teclado");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel.setBounds(20, 37, 46, 14);
+		panel_3.add(lblNewLabel);
 
 		setVisible(true);
 	}

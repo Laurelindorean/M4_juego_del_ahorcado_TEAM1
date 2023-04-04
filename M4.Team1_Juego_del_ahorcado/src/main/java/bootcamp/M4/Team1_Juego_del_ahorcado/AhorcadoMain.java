@@ -1,6 +1,10 @@
 package bootcamp.M4.Team1_Juego_del_ahorcado;
 
+
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -12,15 +16,27 @@ import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+
+
 
 public class AhorcadoMain extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+
 	private JButton btnA, btnB, btnC, btnD, btnE, btnF, btnG, btnH, btnI, btnJ, btnK, btnL, btnM, btnN, btnNY, btnO,
 			btnP, btnQ, btnR, btnS, btnT, btnU, btnV, btnW, btnX, btnY, btnZ;
 	private JSeparator separator;
 	private JSeparator separator_1;
-	
+
+	private JButton btnNuevoJuego;
+	private JButton btnDificultad;
+	private JButton btnResolver;
+	private JButton btnMasPalabras;
+	private ImageIcon imagenAhorcado;
+	private JLabel labelImagen;
 
 	public AhorcadoMain() {
 		setTitle("Juego del ahorcado!");
@@ -32,10 +48,53 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_1.setBounds(10, 11, 299, 147);
-		contentPane.add(panel_1);
+
+		// -----------PANEL DE MENU----------------
+		JPanel panel_menu = new JPanel();
+		panel_menu.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_menu.setBounds(10, 11, 299, 147);
+		panel_menu.setLayout(null);
+		contentPane.add(panel_menu);
+		
+		// Imagen inicial del ahorcado
+		imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado0.jpg");
+		// Label contenedora de la imagen
+		labelImagen = new JLabel(imagenAhorcado);
+		
+		JPanel panelPantallaAhorcado = new JPanel();
+		panelPantallaAhorcado.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelPantallaAhorcado.setBounds(319, 11, 302, 661);
+		panelPantallaAhorcado.setLayout(new BorderLayout(0, 0));
+		panelPantallaAhorcado.add(labelImagen); // Agregar imagen al panel
+		contentPane.add(panelPantallaAhorcado);
+		
+		JLabel lblNewLabel = new JLabel("MENU");
+		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel.setBounds(125, 15, 50, 25);
+		panel_menu.add(lblNewLabel);
+
+		//BOTONES
+		btnNuevoJuego = new JButton("Nuevo juego");
+		btnNuevoJuego.addActionListener(btnsMenu);
+		btnNuevoJuego.setBounds(15, 50, 110, 30);
+		panel_menu.add(btnNuevoJuego);
+
+		btnDificultad = new JButton("Dificultad");
+		btnDificultad.addActionListener(btnsMenu);
+		btnDificultad.setBounds(140, 51, 110, 30);
+		panel_menu.add(btnDificultad);
+
+		btnResolver = new JButton("Resolver");
+		btnResolver.addActionListener(btnsMenu);
+		btnResolver.setBounds(15, 90, 110, 30);
+		panel_menu.add(btnResolver);
+
+		btnMasPalabras = new JButton("Mas Palabras");
+		btnMasPalabras.addActionListener(btnsMenu);
+		btnMasPalabras.setBounds(140, 90, 110, 30);
+		panel_menu.add(btnMasPalabras);
+		// -----------------------------------------------------------------------
+
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -46,6 +105,7 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_3.setBounds(10, 357, 299, 315);
 		contentPane.add(panel_3);
+
 		panel_3.setLayout(null);
 
 		JPanel panel = new JPanel();
@@ -175,6 +235,7 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 		lblNewLabel.setBounds(20, 37, 46, 14);
 		panel_3.add(lblNewLabel);
 
+
 		setVisible(true);
 		
 	}
@@ -264,4 +325,22 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 			// TODO implementar
 		}
 	}
+
+	// ACTION LISTENER PARA EL MENU
+	ActionListener btnsMenu = new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == btnNuevoJuego) {
+
+			}
+			if (e.getSource() == btnDificultad) {
+				AhorcadoWelcome w = new AhorcadoWelcome();
+			}
+			if (e.getSource() == btnResolver) {
+
+			}
+			if (e.getSource() == btnMasPalabras) {
+
+			}
+		}
+	};
 }

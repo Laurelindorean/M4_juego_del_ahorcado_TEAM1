@@ -174,13 +174,87 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if (e.getSource() == btnA) {
 
+		if (e.getSource() == btnA) {
+			// TODO implementar
 		}
 		if (e.getSource() == btnB) {
-
+			// TODO implementar
 		}
-
+		if (e.getSource() == btnC) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnD) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnE) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnF) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnG) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnH) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnI) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnJ) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnK) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnL) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnM) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnN) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnNY) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnO) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnP) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnQ) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnR) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnS) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnT) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnU) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnV) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnW) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnX) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnY) {
+			// TODO implementar
+		}
+		if (e.getSource() == btnZ) {
+			// TODO implementar
+		}
 	}
 }

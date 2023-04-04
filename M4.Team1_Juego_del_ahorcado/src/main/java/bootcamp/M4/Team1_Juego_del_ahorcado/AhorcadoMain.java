@@ -230,10 +230,10 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 		separator_1.setBounds(20, 270, 252, 2);
 		panel_3.add(separator_1);
 		
-		JLabel lblNewLabel = new JLabel("Teclado");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(20, 37, 46, 14);
-		panel_3.add(lblNewLabel);
+		JLabel teclado = new JLabel("Teclado");
+		teclado.setFont(new Font("Tahoma", Font.BOLD, 11));
+		teclado.setBounds(20, 37, 46, 14);
+		panel_3.add(teclado);
 
 
 		setVisible(true);

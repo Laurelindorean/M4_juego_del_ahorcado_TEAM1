@@ -7,7 +7,7 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AhorcadoMain frame = new AhorcadoMain();
+					AhorcadoWelcome frame = new AhorcadoWelcome();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

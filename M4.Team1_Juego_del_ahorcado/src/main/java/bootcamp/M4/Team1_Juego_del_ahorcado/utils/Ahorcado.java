@@ -38,10 +38,9 @@ public class Ahorcado {
 				sb.append(' ');
 			} else if (wordOriginal.charAt(i) == l) {
 				sb.append(l);
-			} else if (wordOriginal.charAt(i) == wordCensured.charAt(i*2)) {
+			} else if (wordOriginal.charAt(i) == wordCensured.charAt(i * 2)) {
 				sb.append(wordOriginal.charAt(i));
-			}
-			else {
+			} else {
 				sb.append('_');
 			}
 			if (i + 1 < wordOriginal.length()) {
@@ -49,6 +48,22 @@ public class Ahorcado {
 			}
 		}
 		return sb.toString();
+	}
+
+	// Funcion que aumenta contador de intentos segun dificultad
+	public static int badChoice(int intentos, int dificultad) {
+		switch (dificultad) {
+		case 0:
+			intentos++;
+		case 1:
+			intentos = intentos + 2;
+		case 2:
+			intentos = intentos + 3;
+		}
+		if (intentos > 9) {
+			intentos = 9;
+		}
+		return intentos;
 	}
 
 }

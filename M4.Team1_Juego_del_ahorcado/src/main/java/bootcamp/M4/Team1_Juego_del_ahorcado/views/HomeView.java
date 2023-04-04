@@ -1,7 +1,5 @@
 package bootcamp.M4.Team1_Juego_del_ahorcado.views;
 
-
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,17 +12,12 @@ import bootcamp.M4.Team1_Juego_del_ahorcado.controllers.WelcomeController;
 
 import java.awt.Color;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import java.awt.Font;
 import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
-
-
 
 public class HomeView extends JFrame implements ActionListener {
 
@@ -41,7 +34,7 @@ public class HomeView extends JFrame implements ActionListener {
 	private JButton btnMasPalabras;
 	private ImageIcon imagenAhorcado;
 	private JLabel labelImagen;
-	
+
 	private String palabra;
 
 	public HomeView() {
@@ -54,32 +47,31 @@ public class HomeView extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-
 		// -----------PANEL DE MENU----------------
 		JPanel panel_menu = new JPanel();
 		panel_menu.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_menu.setBounds(10, 11, 299, 147);
 		panel_menu.setLayout(null);
 		contentPane.add(panel_menu);
-		
+
 		// Imagen inicial del ahorcado
 		imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado0.jpg");
 		// Label contenedora de la imagen
 		labelImagen = new JLabel(imagenAhorcado);
-		
+
 		JPanel panelPantallaAhorcado = new JPanel();
 		panelPantallaAhorcado.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelPantallaAhorcado.setBounds(319, 11, 302, 661);
 		panelPantallaAhorcado.setLayout(new BorderLayout(0, 0));
 		panelPantallaAhorcado.add(labelImagen); // Agregar imagen al panel
 		contentPane.add(panelPantallaAhorcado);
-		
+
 		JLabel lblNewLabel = new JLabel("MENU");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		lblNewLabel.setBounds(125, 15, 50, 25);
 		panel_menu.add(lblNewLabel);
 
-		//BOTONES
+		// BOTONES
 		btnNuevoJuego = new JButton("Nuevo juego");
 		btnNuevoJuego.addActionListener(btnsMenu);
 		btnNuevoJuego.setBounds(15, 50, 110, 30);
@@ -100,7 +92,6 @@ public class HomeView extends JFrame implements ActionListener {
 		btnMasPalabras.setBounds(140, 90, 110, 30);
 		panel_menu.add(btnMasPalabras);
 		// -----------------------------------------------------------------------
-
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -227,23 +218,22 @@ public class HomeView extends JFrame implements ActionListener {
 		btnZ = new JButton("Z");
 		btnZ.addActionListener(this);
 		panel.add(btnZ, "cell 1 5,growx,aligny center");
-		
+
 		separator = new JSeparator();
 		separator.setBounds(20, 57, 252, 7);
 		panel_3.add(separator);
-		
+
 		separator_1 = new JSeparator();
 		separator_1.setBounds(20, 270, 252, 2);
 		panel_3.add(separator_1);
-		
+
 		JLabel teclado = new JLabel("Teclado");
 		teclado.setFont(new Font("Tahoma", Font.BOLD, 11));
 		teclado.setBounds(20, 37, 46, 14);
 		panel_3.add(teclado);
 
-
 		setVisible(true);
-		
+
 	}
 
 	@Override
@@ -336,7 +326,7 @@ public class HomeView extends JFrame implements ActionListener {
 	ActionListener btnsMenu = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnNuevoJuego) {
-				HomeView aMain = new HomeView();	
+				HomeView aMain = new HomeView();
 			}
 			if (e.getSource() == btnDificultad) {
 				setVisible(false);
@@ -344,7 +334,7 @@ public class HomeView extends JFrame implements ActionListener {
 				WelcomeController cWelcome = new WelcomeController(aWelcome);
 			}
 			if (e.getSource() == btnResolver) {
-				//TODO: Resolver ahorcado
+				// TODO: Resolver ahorcado
 			}
 			if (e.getSource() == btnMasPalabras) {
 				palabra = JOptionPane.showInputDialog("Escribe la nueva palabra");

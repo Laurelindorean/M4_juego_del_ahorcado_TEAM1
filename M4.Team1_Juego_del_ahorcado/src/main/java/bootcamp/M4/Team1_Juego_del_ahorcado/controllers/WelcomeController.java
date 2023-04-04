@@ -6,7 +6,6 @@ package bootcamp.M4.Team1_Juego_del_ahorcado.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import bootcamp.M4.Team1_Juego_del_ahorcado.views.HomeView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
 
 /**
@@ -14,11 +13,11 @@ import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
  *
  */
 public class WelcomeController implements ActionListener {
-	
-	//ATRIBUTOS
+
+	// ATRIBUTOS
 	private WelcomeView view;
-	
-	//CONSTRUCTOR
+
+	// CONSTRUCTOR
 	public WelcomeController(WelcomeView view) {
 		this.view = view;
 		this.view.btnPrincipiante.addActionListener(this);
@@ -26,8 +25,8 @@ public class WelcomeController implements ActionListener {
 		this.view.btnExperto.addActionListener(this);
 		view.setVisible(true);
 	}
-	
-	//INICIAR VISTA
+
+	// INICIAR VISTA
 	public void iniciarWelcome() {
 		view.setTitle("JUEGO DEL AHORCADO");
 	}
@@ -35,9 +34,9 @@ public class WelcomeController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int dificultad;
-		if(e.getSource() == view.btnIntermedio) {
+		if (e.getSource() == view.btnIntermedio) {
 			dificultad = 1;
-		} else if(e.getSource() == view.btnExperto) {
+		} else if (e.getSource() == view.btnExperto) {
 			dificultad = 2;
 		} else {
 			dificultad = 0;

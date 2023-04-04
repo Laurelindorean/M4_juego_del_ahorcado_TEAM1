@@ -20,7 +20,7 @@ public class WelcomeView extends JFrame {
 	public JButton btnPrincipiante;
 	public JButton btnIntermedio;
 	public JButton btnExperto;
-	
+
 	public WelcomeView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -30,8 +30,8 @@ public class WelcomeView extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		//TITULO
+
+		// TITULO
 		JLabel lblTituloJuego = new JLabel("Bienvenidos al juego del AHORCADO");
 		lblTituloJuego.setForeground(new Color(4, 21, 108));
 		lblTituloJuego.setBackground(new Color(252, 255, 253));
@@ -39,26 +39,26 @@ public class WelcomeView extends JFrame {
 		lblTituloJuego.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTituloJuego.setBounds(5, 5, 440, 30);
 		contentPane.add(lblTituloJuego);
-		
-		//NIVEL
+
+		// NIVEL
 		JLabel lblNivelDificultad = new JLabel("Elige el nivel de dificultad");
 		lblNivelDificultad.setForeground(new Color(78, 28, 190));
 		lblNivelDificultad.setFont(new Font("Menlo", Font.BOLD | Font.ITALIC, 16));
 		lblNivelDificultad.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNivelDificultad.setBounds(75, 45, 300, 30);
 		contentPane.add(lblNivelDificultad);
-		
-		//BOTONES
+
+		// BOTONES
 		btnPrincipiante = new JButton("Principiante");
 		btnPrincipiante.setForeground(new Color(38, 190, 29));
 		btnPrincipiante.setBounds(163, 85, 110, 40);
 		contentPane.add(btnPrincipiante);
-		
+
 		btnIntermedio = new JButton("Intermedio");
 		btnIntermedio.setForeground(new Color(154, 111, 3));
 		btnIntermedio.setBounds(163, 135, 110, 40);
 		contentPane.add(btnIntermedio);
-		
+
 		btnExperto = new JButton("Experto");
 		btnExperto.setForeground(new Color(154, 8, 22));
 		btnExperto.setBounds(163, 185, 110, 40);
@@ -66,10 +66,10 @@ public class WelcomeView extends JFrame {
 
 		setVisible(true);
 	}
-	
-	//FUNCION NAVEGAR ENTRE PANTALLAS WELCOME-HOME
+
+	// FUNCION NAVEGAR ENTRE PANTALLAS WELCOME-HOME
 	public void cambiarPantalla(int dificultad) {
 		HomeView home = new HomeView();
 	}
-	
+
 }

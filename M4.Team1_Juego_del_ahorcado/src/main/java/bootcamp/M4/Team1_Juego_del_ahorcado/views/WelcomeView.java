@@ -1,8 +1,12 @@
-package bootcamp.M4.Team1_Juego_del_ahorcado;
+package bootcamp.M4.Team1_Juego_del_ahorcado.views;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import bootcamp.M4.Team1_Juego_del_ahorcado.AhorcadoMain;
+import bootcamp.M4.Team1_Juego_del_ahorcado.controllers.WelcomeController;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -11,15 +15,16 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class AhorcadoWelcome extends JFrame {
+public class WelcomeView extends JFrame {
 
 	private JPanel contentPane;
-	private JButton btnPrincipiante;
-	private JButton btnIntermedio;
-	private JButton btnExperto;
-
-	public AhorcadoWelcome() {
+	public JButton btnPrincipiante;
+	public JButton btnIntermedio;
+	public JButton btnExperto;
+	
+	public WelcomeView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setBounds(300, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -46,19 +51,16 @@ public class AhorcadoWelcome extends JFrame {
 		
 		//BOTONES
 		btnPrincipiante = new JButton("Principiante");
-		btnPrincipiante.addActionListener(btns);
 		btnPrincipiante.setForeground(new Color(38, 190, 29));
 		btnPrincipiante.setBounds(163, 85, 110, 40);
 		contentPane.add(btnPrincipiante);
 		
 		btnIntermedio = new JButton("Intermedio");
-		btnIntermedio.addActionListener(btns);
 		btnIntermedio.setForeground(new Color(154, 111, 3));
 		btnIntermedio.setBounds(163, 135, 110, 40);
 		contentPane.add(btnIntermedio);
 		
 		btnExperto = new JButton("Experto");
-		btnExperto.addActionListener(btns);
 		btnExperto.setForeground(new Color(154, 8, 22));
 		btnExperto.setBounds(163, 185, 110, 40);
 		contentPane.add(btnExperto);
@@ -66,25 +68,9 @@ public class AhorcadoWelcome extends JFrame {
 		setVisible(true);
 	}
 	
+	//FUNCION NAVEGAR ENTRE PANTALLAS WELCOME-HOME
+	public void cambiarPantalla(int dificultad) {
+		AhorcadoMain home = new AhorcadoMain();
+	}
 	
-	//LISTENERS
-	ActionListener btns = new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			int dificultad;
-			if(e.getSource() == btnIntermedio) {
-				dificultad = 1;
-			} else if(e.getSource() == btnExperto) {
-				dificultad = 2;
-			} else {
-				dificultad = 0;
-			}
-			setVisible(false);
-			AhorcadoMain home = new AhorcadoMain();
-			
-		}
-	};
-	
-	
-	
-
 }

@@ -9,6 +9,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import bootcamp.M4.Team1_Juego_del_ahorcado.controllers.WelcomeController;
+import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
+
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -337,7 +341,8 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 			}
 			if (e.getSource() == btnDificultad) {
 				setVisible(false);
-				AhorcadoWelcome aWelcome = new AhorcadoWelcome();
+				WelcomeView aWelcome = new WelcomeView();
+				WelcomeController cWelcome = new WelcomeController(aWelcome);
 			}
 			if (e.getSource() == btnResolver) {
 				//TODO: Resolver ahorcado

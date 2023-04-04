@@ -78,7 +78,7 @@ public class AhorcadoWelcome extends JFrame {
 			} else {
 				dificultad = 0;
 			}
-			//TODO: LLamar al Ahorcado Main
+			// TODO: LLamar al Ahorcado Main
 			
 		}
 	};

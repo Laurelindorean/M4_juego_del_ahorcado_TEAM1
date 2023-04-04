@@ -34,12 +34,12 @@ public class AhorcadoMain extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_2.setBounds(10, 169, 299, 220);
+		panel_2.setBounds(10, 169, 299, 177);
 		contentPane.add(panel_2);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_3.setBounds(10, 400, 299, 272);
+		panel_3.setBounds(10, 357, 299, 315);
 		contentPane.add(panel_3);
 		
 		setVisible(true);

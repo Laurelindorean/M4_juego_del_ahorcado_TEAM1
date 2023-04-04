@@ -35,11 +35,6 @@ public class AhorcadoMain extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(319, 11, 302, 661);
-		contentPane.add(panel);
-
 		// -----------PANEL DE MENU----------------
 		JPanel panel_menu = new JPanel();
 		panel_menu.setBorder(new LineBorder(new Color(0, 0, 0)));

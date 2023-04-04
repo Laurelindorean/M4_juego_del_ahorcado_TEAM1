@@ -176,6 +176,7 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 		panel_3.add(lblNewLabel);
 
 		setVisible(true);
+		
 	}
 
 	@Override

@@ -6,7 +6,7 @@ package bootcamp.M4.Team1_Juego_del_ahorcado.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import bootcamp.M4.Team1_Juego_del_ahorcado.AhorcadoMain;
+import bootcamp.M4.Team1_Juego_del_ahorcado.views.HomeView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
 
 /**

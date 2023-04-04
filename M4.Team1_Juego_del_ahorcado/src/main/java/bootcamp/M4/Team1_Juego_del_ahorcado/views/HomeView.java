@@ -1,4 +1,4 @@
-package bootcamp.M4.Team1_Juego_del_ahorcado;
+package bootcamp.M4.Team1_Juego_del_ahorcado.views;
 
 
 
@@ -11,7 +11,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import bootcamp.M4.Team1_Juego_del_ahorcado.controllers.WelcomeController;
-import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
 
 import java.awt.Color;
 import javax.swing.JButton;
@@ -27,7 +26,7 @@ import java.awt.BorderLayout;
 
 
 
-public class AhorcadoMain extends JFrame implements ActionListener {
+public class HomeView extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 
@@ -45,7 +44,7 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 	
 	private String palabra;
 
-	public AhorcadoMain() {
+	public HomeView() {
 		setTitle("Juego del ahorcado!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 100, 647, 722);
@@ -337,7 +336,7 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 	ActionListener btnsMenu = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnNuevoJuego) {
-				AhorcadoMain aMain = new AhorcadoMain();	
+				HomeView aMain = new HomeView();	
 			}
 			if (e.getSource() == btnDificultad) {
 				setVisible(false);

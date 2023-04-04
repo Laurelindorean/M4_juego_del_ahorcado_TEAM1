@@ -1,8 +1,8 @@
 package bootcamp.M4.Team1_Juego_del_ahorcado;
 
-import java.awt.EventQueue;
-
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+
 
 public class AhorcadoMain extends JFrame {
 
@@ -20,6 +22,8 @@ public class AhorcadoMain extends JFrame {
 	private JButton btnDificultad;
 	private JButton btnResolver;
 	private JButton btnMasPalabras;
+	private ImageIcon imagenAhorcado;
+	private JLabel labelImagen;
 
 	public AhorcadoMain() {
 		setTitle("Juego del ahorcado!");
@@ -42,6 +46,18 @@ public class AhorcadoMain extends JFrame {
 		panel_menu.setBounds(10, 11, 299, 147);
 		panel_menu.setLayout(null);
 		contentPane.add(panel_menu);
+		
+		// Imagen inicial del ahorcado
+		imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado0.jpg");
+		// Label contenedora de la imagen
+		labelImagen = new JLabel(imagenAhorcado);
+		
+		JPanel panelPantallaAhorcado = new JPanel();
+		panelPantallaAhorcado.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelPantallaAhorcado.setBounds(319, 11, 302, 661);
+		panelPantallaAhorcado.setLayout(new BorderLayout(0, 0));
+		panelPantallaAhorcado.add(labelImagen); // Agregar imagen al panel
+		contentPane.add(panelPantallaAhorcado);
 		
 		JLabel lblNewLabel = new JLabel("MENU");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));

@@ -209,47 +209,47 @@ public class HomeView extends JFrame {
 		btnR = new JButton("R");
 		btnR.addActionListener(btnTeclado);
 		panel.add(btnR, "cell 3 3,growx,aligny center");
-		// array
+		
 		btnsTeclado.add(btnR);
 		btnS = new JButton("S");
 		btnS.addActionListener(btnTeclado);
 		panel.add(btnS, "cell 4 3,growx,aligny center");
-		// array
+		
 		btnsTeclado.add(btnS);
 		btnT = new JButton("T");
 		btnT.addActionListener(btnTeclado);
 		panel.add(btnT, "cell 0 4,growx,aligny center");
-		// array
+		
 		btnsTeclado.add(btnT);
 		btnU = new JButton("U");
 		btnU.addActionListener(btnTeclado);
 		panel.add(btnU, "cell 1 4,growx,aligny center");
-		// array
+		
 		btnsTeclado.add(btnU);
 		btnV = new JButton("V");
 		btnV.addActionListener(btnTeclado);
 		panel.add(btnV, "cell 2 4,growx,aligny center");
-		// array
+		
 		btnsTeclado.add(btnV);
 		btnW = new JButton("W");
 		btnW.addActionListener(btnTeclado);
 		panel.add(btnW, "cell 3 4,growx,aligny center");
-		// array
+		
 		btnsTeclado.add(btnW);
 		btnX = new JButton("X");
 		btnX.addActionListener(btnTeclado);
 		panel.add(btnX, "cell 4 4,growx,aligny center");
-		// array
+		
 		btnsTeclado.add(btnX);
 		btnY = new JButton("Y");
 		btnY.addActionListener(btnTeclado);
 		panel.add(btnY, "cell 0 5,growx,aligny center");
-		// array
+		
 		btnsTeclado.add(btnY);
 		btnZ = new JButton("Z");
 		btnZ.addActionListener(btnTeclado);
 		panel.add(btnZ, "cell 1 5,growx,aligny center");
-		// array
+		
 		btnsTeclado.add(btnZ);
 		separator = new JSeparator();
 		separator.setBounds(20, 57, 252, 7);
@@ -284,6 +284,8 @@ public class HomeView extends JFrame {
 	ActionListener btnsMenu = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnNuevoJuego) {
+				//pongo en false para que no se dupliquen las ventanas
+				setVisible(false);
 				HomeView aMain = new HomeView();
 				
 			}

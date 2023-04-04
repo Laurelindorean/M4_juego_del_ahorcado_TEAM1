@@ -5,6 +5,7 @@ package bootcamp.M4.Team1_Juego_del_ahorcado;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -37,6 +38,8 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 	private JButton btnMasPalabras;
 	private ImageIcon imagenAhorcado;
 	private JLabel labelImagen;
+	
+	private String palabra;
 
 	public AhorcadoMain() {
 		setTitle("Juego del ahorcado!");
@@ -330,16 +333,17 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 	ActionListener btnsMenu = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnNuevoJuego) {
-
+				AhorcadoMain aMain = new AhorcadoMain();	
 			}
 			if (e.getSource() == btnDificultad) {
-				AhorcadoWelcome w = new AhorcadoWelcome();
+				setVisible(false);
+				AhorcadoWelcome aWelcome = new AhorcadoWelcome();
 			}
 			if (e.getSource() == btnResolver) {
-
+				//TODO: Resolver ahorcado
 			}
 			if (e.getSource() == btnMasPalabras) {
-
+				palabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
 			}
 		}
 	};

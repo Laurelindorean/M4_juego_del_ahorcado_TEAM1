@@ -44,7 +44,7 @@ public class AhorcadoMain extends JFrame implements ActionListener {
 	public AhorcadoMain() {
 		setTitle("Juego del ahorcado!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 647, 722);
+		setBounds(300, 100, 647, 722);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

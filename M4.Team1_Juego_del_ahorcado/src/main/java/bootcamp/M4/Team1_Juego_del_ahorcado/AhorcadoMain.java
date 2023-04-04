@@ -1,16 +1,19 @@
 package bootcamp.M4.Team1_Juego_del_ahorcado;
 
-import java.awt.EventQueue;
-
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.awt.BorderLayout;
 
 public class AhorcadoMain extends JFrame {
 
 	private JPanel contentPane;
+	private ImageIcon imagenAhorcado;
+	private JLabel labelImagen;
 
 	public AhorcadoMain() {
 		setTitle("Juego del ahorcado!");
@@ -22,10 +25,17 @@ public class AhorcadoMain extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(319, 11, 302, 661);
-		contentPane.add(panel);
+		// Imagen inicial del ahorcado
+		imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado0.jpg");
+		// Label contenedora de la imagen
+		labelImagen = new JLabel(imagenAhorcado);
+		
+		JPanel panelPantallaAhorcado = new JPanel();
+		panelPantallaAhorcado.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panelPantallaAhorcado.setBounds(319, 11, 302, 661);
+		panelPantallaAhorcado.setLayout(new BorderLayout(0, 0));
+		panelPantallaAhorcado.add(labelImagen); // Agregar imagen al panel
+		contentPane.add(panelPantallaAhorcado);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));

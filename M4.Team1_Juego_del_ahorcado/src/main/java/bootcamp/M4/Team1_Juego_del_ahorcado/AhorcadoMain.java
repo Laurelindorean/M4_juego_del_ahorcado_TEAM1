@@ -7,10 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 public class AhorcadoMain extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textFieldPista;
 
 	public AhorcadoMain() {
 		setTitle("Juego del ahorcado!");
@@ -32,10 +36,24 @@ public class AhorcadoMain extends JFrame {
 		panel_1.setBounds(10, 11, 299, 147);
 		contentPane.add(panel_1);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_2.setBounds(10, 169, 299, 177);
-		contentPane.add(panel_2);
+		JPanel panel_pistas = new JPanel();
+		panel_pistas.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_pistas.setBounds(10, 169, 299, 177);
+		contentPane.add(panel_pistas);
+		panel_pistas.setLayout(null);
+		
+		JLabel lblPistas = new JLabel("Pistas");
+		lblPistas.setBounds(17, 16, 46, 16);
+		panel_pistas.add(lblPistas);
+		
+		JButton btnPedirPista = new JButton("Pedir Pista");
+		btnPedirPista.setBounds(6, 130, 117, 29);
+		panel_pistas.add(btnPedirPista);
+		
+		textFieldPista = new JTextField();
+		textFieldPista.setBounds(147, 130, 130, 26);
+		panel_pistas.add(textFieldPista);
+		textFieldPista.setColumns(10);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));

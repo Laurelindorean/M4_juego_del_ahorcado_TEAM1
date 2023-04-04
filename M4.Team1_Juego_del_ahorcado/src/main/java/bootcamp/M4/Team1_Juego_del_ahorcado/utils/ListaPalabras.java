@@ -34,6 +34,7 @@ public class ListaPalabras {
 
 	// Agregar palabras a la lista
 	public void addWord(String word) {
+		word = word.toUpperCase();
 		ListaPalabras.add(word);
 	}
 	

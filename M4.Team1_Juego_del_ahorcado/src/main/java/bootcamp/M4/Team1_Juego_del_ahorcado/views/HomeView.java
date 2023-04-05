@@ -59,7 +59,7 @@ public class HomeView extends JFrame {
 		contentPane.add(panel_menu);
 
 		// Imagen inicial del ahorcado
-		imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado9.jpg");
+		imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado0.jpg");
 		// Label contenedora de la imagen
 		labelImagen = new JLabel(imagenAhorcado);
 

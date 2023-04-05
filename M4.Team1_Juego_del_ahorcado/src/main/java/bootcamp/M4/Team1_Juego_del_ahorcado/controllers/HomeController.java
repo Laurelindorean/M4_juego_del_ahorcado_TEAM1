@@ -62,36 +62,6 @@ public class HomeController {
 		for(JButton jButton : view.btnsTeclado) {
 			jButton.addActionListener(btnTeclado);
 		}
-		/*view.btnA.addActionListener(btnTeclado);
-		view.btnB.addActionListener(btnTeclado);
-		view.btnC.addActionListener(btnTeclado);
-		view.btnD.addActionListener(btnTeclado);
-		view.btnE.addActionListener(btnTeclado);
-		view.btnF.addActionListener(btnTeclado);
-		view.btnG.addActionListener(btnTeclado);
-		view.btnH.addActionListener(btnTeclado);
-		view.btnI.addActionListener(btnTeclado);
-		view.btnJ.addActionListener(btnTeclado);
-		view.btnK.addActionListener(btnTeclado);
-		view.btnL.addActionListener(btnTeclado);
-		view.btnM.addActionListener(btnTeclado);
-		view.btnN.addActionListener(btnTeclado);
-		view.btnNY.addActionListener(btnTeclado);
-		view.btnO.addActionListener(btnTeclado);
-		view.btnP.addActionListener(btnTeclado);
-		view.btnQ.addActionListener(btnTeclado);
-		view.btnR.addActionListener(btnTeclado);
-		view.btnS.addActionListener(btnTeclado);
-		view.btnT.addActionListener(btnTeclado);
-		view.btnU.addActionListener(btnTeclado);
-		view.btnV.addActionListener(btnTeclado);
-		view.btnW.addActionListener(btnTeclado);
-		view.btnX.addActionListener(btnTeclado);
-		view.btnY.addActionListener(btnTeclado);
-		view.btnZ.addActionListener(btnTeclado);*/
-		
-		
-
 	}
 
 	// ACTION LISTENER PARA EL MENU

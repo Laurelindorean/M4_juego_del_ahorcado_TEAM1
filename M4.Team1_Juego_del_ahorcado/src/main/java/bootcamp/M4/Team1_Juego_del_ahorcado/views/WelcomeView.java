@@ -72,6 +72,7 @@ public class WelcomeView extends JFrame {
 	// FUNCION NAVEGAR ENTRE PANTALLAS WELCOME-HOME
 	public void cambiarPantalla(int dificultad) {
 		
+		//PRUEBA
 		HomeView home = new HomeView();
 		HomeController homeController = new HomeController(home);	}
 

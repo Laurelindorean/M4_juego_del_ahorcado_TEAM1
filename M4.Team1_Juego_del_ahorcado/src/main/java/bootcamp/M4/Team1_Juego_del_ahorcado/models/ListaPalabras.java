@@ -1,4 +1,4 @@
-package bootcamp.M4.Team1_Juego_del_ahorcado.utils;
+package bootcamp.M4.Team1_Juego_del_ahorcado.models;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -67,6 +67,7 @@ public class ListaPalabras {
 	
 	// Devuelve palabra aleatoria de la lista
 	public String getRandWord() {
+		rand = new Random();
 		int i = rand.nextInt(ListaPalabras.size());
 		return ListaPalabras.get(i);
 	}

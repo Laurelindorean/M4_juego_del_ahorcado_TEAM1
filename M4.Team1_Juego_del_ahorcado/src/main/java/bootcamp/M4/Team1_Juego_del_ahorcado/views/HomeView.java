@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
 
 public class HomeView extends JFrame {
 
@@ -92,10 +93,28 @@ public class HomeView extends JFrame {
 		panel_menu.add(btnMasPalabras);
 		// -----------------------------------------------------------------------
 
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_2.setBounds(10, 169, 299, 177);
-		contentPane.add(panel_2);
+		JPanel panel_pistas = new JPanel();
+		panel_pistas.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_pistas.setBounds(10, 169, 299, 88);
+		contentPane.add(panel_pistas);
+		panel_pistas.setLayout(null);
+		
+		JLabel lblPistas = new JLabel("PISTAS");
+		lblPistas.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblPistas.setBounds(119, 6, 58, 25);
+		panel_pistas.add(lblPistas);
+		
+		JButton btnPedirPista = new JButton("Pedir Pista");
+		btnPedirPista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnPedirPista.setBounds(17, 32, 99, 29);
+		panel_pistas.add(btnPedirPista);
+		
+		JLabel lblIntentos = new JLabel("INTENTOS: 10");
+		lblIntentos.setBounds(166, 37, 99, 16);
+		panel_pistas.add(lblIntentos);
 
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -258,6 +277,23 @@ public class HomeView extends JFrame {
 		teclado.setFont(new Font("Tahoma", Font.BOLD, 11));
 		teclado.setBounds(20, 37, 46, 14);
 		panel_3.add(teclado);
+		
+		JPanel panel_resultado = new JPanel();
+		panel_resultado.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_resultado.setBounds(10, 269, 299, 76);
+		contentPane.add(panel_resultado);
+		panel_resultado.setLayout(null);
+		
+		JLabel lblPalabraAAdivinar = new JLabel("PALABRA A ADIVINAR");
+		lblPalabraAAdivinar.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPalabraAAdivinar.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblPalabraAAdivinar.setBounds(51, 6, 186, 25);
+		panel_resultado.add(lblPalabraAAdivinar);
+		
+		JLabel lblPalabra = new JLabel("palabra...");
+		lblPalabra.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPalabra.setBounds(61, 43, 176, 16);
+		panel_resultado.add(lblPalabra);
 
 		setVisible(true);
 

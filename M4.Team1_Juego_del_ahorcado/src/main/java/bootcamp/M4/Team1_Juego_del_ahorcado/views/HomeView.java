@@ -274,11 +274,13 @@ public class HomeView extends JFrame {
 			for (JButton jButton : btnsTeclado) {
 				if(e.getSource()==jButton) {
 					jButton.setEnabled(false);
+					if(!(palabra == null)) {
+						System.out.println(Ahorcado.checkLetterInWord((jButton.getText().charAt(0)), palabra));
+					}
 				}
+				
 			}
-			if(!(palabra == null)) {
-				Ahorcado.checkLetterInWord(e.getActionCommand().charAt(0), palabra);
-			}
+			
 			
 		}
 	};

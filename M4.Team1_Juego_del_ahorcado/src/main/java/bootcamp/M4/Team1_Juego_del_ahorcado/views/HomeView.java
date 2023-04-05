@@ -269,13 +269,17 @@ public class HomeView extends JFrame {
 
 	ActionListener btnTeclado = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			Ahorcado.checkLetterInWord(e.getActionCommand().charAt(0), palabra);
+			
 			//Para desactivar la letra pulsada
 			for (JButton jButton : btnsTeclado) {
 				if(e.getSource()==jButton) {
 					jButton.setEnabled(false);
 				}
 			}
+			if(!(palabra == null)) {
+				Ahorcado.checkLetterInWord(e.getActionCommand().charAt(0), palabra);
+			}
+			
 		}
 	};
 

@@ -104,6 +104,9 @@ public class HomeController {
 			}
 			if (e.getSource() == view.btnResolver) {
 				// TODO: Resolver ahorcado
+				view.lblPalabra.setText(palabraSelected);
+				intentos = 0;
+				view.lblNumIntentos.setText(""+intentos);
 				// Para desactivar todas las teclas
 				for (JButton jButton : view.btnsTeclado) {
 					jButton.setEnabled(false);

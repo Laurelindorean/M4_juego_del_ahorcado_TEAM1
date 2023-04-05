@@ -1,7 +1,5 @@
 package bootcamp.M4.Team1_Juego_del_ahorcado.utils;
 
-import java.util.ArrayList;
-
 public class Ahorcado {
 
 	// Comprueba si x carácter está presente en una palabra

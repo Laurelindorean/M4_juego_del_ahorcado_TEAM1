@@ -59,7 +59,10 @@ public class HomeController {
 		this.view.btnsTeclado.add(view.btnX);
 		this.view.btnsTeclado.add(view.btnY);
 		this.view.btnsTeclado.add(view.btnZ);
-		view.btnA.addActionListener(btnTeclado);
+		for(JButton jButton : view.btnsTeclado) {
+			jButton.addActionListener(btnTeclado);
+		}
+		/*view.btnA.addActionListener(btnTeclado);
 		view.btnB.addActionListener(btnTeclado);
 		view.btnC.addActionListener(btnTeclado);
 		view.btnD.addActionListener(btnTeclado);
@@ -85,7 +88,7 @@ public class HomeController {
 		view.btnW.addActionListener(btnTeclado);
 		view.btnX.addActionListener(btnTeclado);
 		view.btnY.addActionListener(btnTeclado);
-		view.btnZ.addActionListener(btnTeclado);
+		view.btnZ.addActionListener(btnTeclado);*/
 		
 		
 
@@ -125,16 +128,13 @@ public class HomeController {
 			for (JButton jButton : view.btnsTeclado) {
 				if (e.getSource() == jButton) {
 					jButton.setEnabled(false);
+					if(!(palabra == null)) {
+						char letra = jButton.getText().charAt(0);
+						System.out.println(Ahorcado.checkLetterInWord(letra, palabra));
+					}
 				}						
 			}
-			//char letra = jButton.getText().charAt(0);
-			//if (!(palabra == null && Ahorcado.checkLetterInWord(letra, palabra))) {
-			//	System.out.println(letra);
-			//}
-			
-
-			
-
+	
 		}
 	};
 

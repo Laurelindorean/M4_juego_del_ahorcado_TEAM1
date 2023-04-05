@@ -74,6 +74,6 @@ public class WelcomeView extends JFrame {
 		
 		//PRUEBA
 		HomeView home = new HomeView();
-		HomeController homeController = new HomeController(home);	}
+		HomeController homeController = new HomeController(home, dificultad);	}
 
 }

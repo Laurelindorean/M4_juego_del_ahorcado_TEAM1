@@ -3,13 +3,9 @@ package bootcamp.M4.Team1_Juego_del_ahorcado.views;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-
-import bootcamp.M4.Team1_Juego_del_ahorcado.controllers.WelcomeController;
-import bootcamp.M4.Team1_Juego_del_ahorcado.utils.Ahorcado;
 
 import java.awt.Color;
 import javax.swing.JButton;
@@ -35,6 +31,7 @@ public class HomeView extends JFrame {
 	public JButton btnDificultad;
 	public JButton btnResolver;
 	public JButton btnMasPalabras;
+	public JLabel lblNumIntentos;
 	private ImageIcon imagenAhorcado;
 	private JLabel labelImagen;
 	public ArrayList<JButton> btnsTeclado = new ArrayList<>();
@@ -42,7 +39,7 @@ public class HomeView extends JFrame {
 	private String palabra;
 
 	public HomeView() {
-		setTitle("Juego del ahorcado!"); 
+		setTitle("Juego del ahorcado!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 100, 647, 722);
 		contentPane = new JPanel();
@@ -98,12 +95,12 @@ public class HomeView extends JFrame {
 		panel_pistas.setBounds(10, 169, 299, 88);
 		contentPane.add(panel_pistas);
 		panel_pistas.setLayout(null);
-		
+
 		JLabel lblPistas = new JLabel("PISTAS");
 		lblPistas.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		lblPistas.setBounds(119, 6, 58, 25);
 		panel_pistas.add(lblPistas);
-		
+
 		JButton btnPedirPista = new JButton("Pedir Pista");
 		btnPedirPista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -111,10 +108,15 @@ public class HomeView extends JFrame {
 		});
 		btnPedirPista.setBounds(17, 32, 99, 29);
 		panel_pistas.add(btnPedirPista);
-		
-		JLabel lblIntentos = new JLabel("INTENTOS: 10");
-		lblIntentos.setBounds(166, 37, 99, 16);
+
+		JLabel lblIntentos = new JLabel("INTENTOS:");
+		lblIntentos.setBounds(166, 37, 74, 16);
 		panel_pistas.add(lblIntentos);
+		
+		lblNumIntentos = new JLabel("");
+		lblNumIntentos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNumIntentos.setBounds(249, 37, 21, 16);
+		panel_pistas.add(lblNumIntentos);
 
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -130,84 +132,64 @@ public class HomeView extends JFrame {
 		panel.setLayout(new MigLayout("", "[53px][51px][53px][49px][51px]", "[23px][23px][23px][23px][23px][23px][]"));
 
 		btnA = new JButton("A");
-		
 		panel.add(btnA, "cell 0 0,growx,aligny center");
-		
 
 		btnB = new JButton("B");
-		
 		panel.add(btnB, "cell 1 0,growx,aligny center");
-		
-		
+
 		btnC = new JButton("C");
-	
 		panel.add(btnC, "cell 2 0,growx,aligny center");
-		
-		
+
 		btnD = new JButton("D");
-	
 		panel.add(btnD, "cell 3 0,growx,aligny center");
-		
-		
+
 		btnE = new JButton("E");
-		
 		panel.add(btnE, "cell 4 0,growx,aligny center");
-	
+
 		btnF = new JButton("F");
-		
 		panel.add(btnF, "cell 0 1,growx,aligny center");
-		
-	
+
 		btnG = new JButton("G");
 		panel.add(btnG, "cell 1 1,growx,aligny center");
-		
-		
+
 		btnH = new JButton("H");
-		
 		panel.add(btnH, "cell 2 1,growx,aligny center");
-		
-	
+
 		btnI = new JButton("I");
 
 		panel.add(btnI, "cell 3 1,growx,aligny center");
-		
-	
+
 		btnJ = new JButton("J");
 		panel.add(btnJ, "cell 4 1,growx,aligny center");
-	
+
 		btnK = new JButton("K");
 
 		panel.add(btnK, "cell 0 2,growx,aligny center");
 
-
 		btnL = new JButton("L");
 		panel.add(btnL, "cell 1 2,growx,aligny center");
-		
-	
+
 		btnM = new JButton("M");
 
 		panel.add(btnM, "cell 2 2,growx,aligny center");
-		
 
 		btnN = new JButton("N");
-	
+
 		panel.add(btnN, "cell 3 2,growx,aligny center");
 
 		btnNY = new JButton("Ñ");
 
 		panel.add(btnNY, "cell 4 2,growx,aligny center");
-		
+
 		btnO = new JButton("O");
 		panel.add(btnO, "cell 0 3,growx,aligny center");
-		
+
 		btnP = new JButton("P");
 		panel.add(btnP, "cell 1 3,growx,aligny center");
-		
 
 		btnQ = new JButton("Q");
 
 		panel.add(btnQ, "cell 2 3,growx,aligny center");
-		
 
 		btnR = new JButton("R");
 
@@ -220,7 +202,6 @@ public class HomeView extends JFrame {
 		btnT = new JButton("T");
 
 		panel.add(btnT, "cell 0 4,growx,aligny center");
-		
 
 		btnU = new JButton("U");
 
@@ -229,21 +210,19 @@ public class HomeView extends JFrame {
 		btnV = new JButton("V");
 
 		panel.add(btnV, "cell 2 4,growx,aligny center");
-	
+
 		btnW = new JButton("W");
 
 		panel.add(btnW, "cell 3 4,growx,aligny center");
-		
 
 		btnX = new JButton("X");
 
 		panel.add(btnX, "cell 4 4,growx,aligny center");
-		
-	
+
 		btnY = new JButton("Y");
 
 		panel.add(btnY, "cell 0 5,growx,aligny center");
-		
+
 		btnZ = new JButton("Z");
 
 		panel.add(btnZ, "cell 1 5,growx,aligny center");
@@ -260,19 +239,19 @@ public class HomeView extends JFrame {
 		teclado.setFont(new Font("Tahoma", Font.BOLD, 11));
 		teclado.setBounds(20, 37, 46, 14);
 		panel_3.add(teclado);
-		
+
 		JPanel panel_resultado = new JPanel();
 		panel_resultado.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_resultado.setBounds(10, 269, 299, 76);
 		contentPane.add(panel_resultado);
 		panel_resultado.setLayout(null);
-		
+
 		JLabel lblPalabraAAdivinar = new JLabel("PALABRA A ADIVINAR");
 		lblPalabraAAdivinar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPalabraAAdivinar.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		lblPalabraAAdivinar.setBounds(51, 6, 186, 25);
 		panel_resultado.add(lblPalabraAAdivinar);
-		
+
 		JLabel lblPalabra = new JLabel("palabra...");
 		lblPalabra.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPalabra.setBounds(61, 43, 176, 16);
@@ -281,5 +260,4 @@ public class HomeView extends JFrame {
 		setVisible(true);
 
 	}
-
 }

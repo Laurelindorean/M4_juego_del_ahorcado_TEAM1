@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import bootcamp.M4.Team1_Juego_del_ahorcado.models.ListaPalabras;
 import bootcamp.M4.Team1_Juego_del_ahorcado.utils.Ahorcado;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.HomeView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
@@ -22,12 +23,28 @@ public class HomeController {
 
 	// ATRIBUTO
 	private HomeView view;
-	private String palabra;
-	// private ArrayList<JButton> btnsTeclado = new ArrayList<>();
+	private String palabraSelected;
+	private String palabraCensured;
+	private String nuevaPalabra;
+	private int dificultad;
+	private int fallos;
+	private int intentos;
+	ListaPalabras listaPalabras;
 
+	// private ArrayList<JButton> btnsTeclado = new ArrayList<>();
 	//
-	public HomeController(HomeView view) {
+	public HomeController(HomeView view, int dificultad) {
+		
+		//INICIAR JUEGO
 		this.view = view;
+		this.dificultad = dificultad;
+		this.fallos = 0;
+		this.intentos = Ahorcado.getIntentos(dificultad);
+		this.listaPalabras = new ListaPalabras(dificultad);
+		this.palabraSelected = listaPalabras.getRandWord();
+		this.palabraCensured = Ahorcado.censorWord(palabraSelected);
+		this.view.lblNumIntentos.setText(""+intentos);
+		//INICIAR BOTONES
 		this.view.btnNuevoJuego.addActionListener(btnsMenu);
 		this.view.btnDificultad.addActionListener(btnsMenu);
 		this.view.btnResolver.addActionListener(btnsMenu);
@@ -59,7 +76,7 @@ public class HomeController {
 		this.view.btnsTeclado.add(view.btnX);
 		this.view.btnsTeclado.add(view.btnY);
 		this.view.btnsTeclado.add(view.btnZ);
-		for(JButton jButton : view.btnsTeclado) {
+		for (JButton jButton : view.btnsTeclado) {
 			jButton.addActionListener(btnTeclado);
 		}
 	}
@@ -71,6 +88,7 @@ public class HomeController {
 				// pongo en false para que no se dupliquen las ventanas
 				view.setVisible(false);
 				HomeView aMain = new HomeView();
+				HomeController hController = new HomeController(aMain, dificultad);
 
 			}
 			if (e.getSource() == view.btnDificultad) {
@@ -86,7 +104,7 @@ public class HomeController {
 				}
 			}
 			if (e.getSource() == view.btnMasPalabras) {
-				palabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
+				nuevaPalabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
 			}
 		}
 	};
@@ -98,13 +116,13 @@ public class HomeController {
 			for (JButton jButton : view.btnsTeclado) {
 				if (e.getSource() == jButton) {
 					jButton.setEnabled(false);
-					if(!(palabra == null)) {
+					if (!(palabraSelected == null)) {
 						char letra = jButton.getText().charAt(0);
-						System.out.println(Ahorcado.checkLetterInWord(letra, palabra));
+						System.out.println(Ahorcado.checkLetterInWord(letra, palabraSelected));
 					}
-				}						
+				}
 			}
-	
+
 		}
 	};
 

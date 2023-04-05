@@ -67,6 +67,7 @@ public class ListaPalabras {
 	
 	// Devuelve palabra aleatoria de la lista
 	public String getRandWord() {
+		rand = new Random();
 		int i = rand.nextInt(ListaPalabras.size());
 		return ListaPalabras.get(i);
 	}

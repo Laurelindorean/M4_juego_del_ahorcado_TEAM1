@@ -2,7 +2,11 @@ package bootcamp.M4.Team1_Juego_del_ahorcado.models;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+/**
+ * 
+ * @author TEAM1 (Aitor, Josep, Palmira)
+ *
+ */
 public class ListaPalabras {
 
 	private ArrayList<String> ListaPalabras;

@@ -17,7 +17,7 @@ import bootcamp.M4.Team1_Juego_del_ahorcado.views.HomeView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
 
 /**
- * @author aitor
+ * @author TEAM1 (Aitor, Josep, Palmira)
  *
  */
 public class HomeController {
@@ -32,13 +32,12 @@ public class HomeController {
 	private int intentos;
 	ListaPalabras listaPalabras;
 	private ImageIcon imagenAhorcado;
-	
 
 	// private ArrayList<JButton> btnsTeclado = new ArrayList<>();
 	//
 	public HomeController(HomeView view, int dificultad) {
-		
-		//INICIAR JUEGO
+
+		// INICIAR JUEGO
 		this.view = view;
 		this.dificultad = dificultad;
 		this.fallos = 0;
@@ -46,11 +45,12 @@ public class HomeController {
 		this.listaPalabras = new ListaPalabras(dificultad);
 		this.palabraSelected = listaPalabras.getRandWord();
 		this.palabraCensured = Ahorcado.censorWord(palabraSelected);
-		this.view.lblNumIntentos.setText(""+intentos);
-		this.imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado"+fallos+".jpg");
-		
+		this.view.lblNumIntentos.setText("" + intentos);
+		this.imagenAhorcado = new ImageIcon(
+				"src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado" + fallos + ".jpg");
+
 		this.view.lblPalabra.setText(palabraCensured);
-		//INICIAR BOTONES
+		// INICIAR BOTONES
 		this.view.btnNuevoJuego.addActionListener(btnsMenu);
 		this.view.btnDificultad.addActionListener(btnsMenu);
 		this.view.btnResolver.addActionListener(btnsMenu);
@@ -103,15 +103,17 @@ public class HomeController {
 				WelcomeController cWelcome = new WelcomeController(aWelcome);
 			}
 			if (e.getSource() == view.btnResolver) {
-				//Mostramos la palabra secreta
+				// Mostramos la palabra secreta
 				view.lblPalabra.setText(palabraSelected);
-				//Ponemos los intentos en 0, los fallos en 9 y los mostramos en el label junto con la imagen del ahorcado completo
+				// Ponemos los intentos en 0, los fallos en 9 y los mostramos en el label junto
+				// con la imagen del ahorcado completo
 				intentos = 0;
 				fallos = 9;
-				view.lblNumIntentos.setText(""+intentos);
-				imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado"+fallos+".jpg");
+				view.lblNumIntentos.setText("" + intentos);
+				imagenAhorcado = new ImageIcon(
+						"src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado" + fallos + ".jpg");
 				view.labelImagen.setIcon(imagenAhorcado);
-				
+
 				// Si resolvemos desactivamos los botones
 				for (JButton jButton : view.btnsTeclado) {
 					jButton.setEnabled(false);
@@ -122,10 +124,7 @@ public class HomeController {
 			}
 		}
 	};
-	
-	
-	
-	
+
 	// ACTIONLISTENER PARA EL TECLADO
 	ActionListener btnTeclado = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -134,32 +133,42 @@ public class HomeController {
 			for (JButton jButton : view.btnsTeclado) {
 				if (e.getSource() == jButton) {
 					jButton.setEnabled(false);
+					// Comprobamos que haya una palabra seleccionada
 					if (!(palabraSelected == null)) {
-						System.out.println(palabraSelected);
+						// System.out.println(palabraSelected);
+						// Convertimos a Char el string obtenido del boton pulsado
 						char letra = jButton.getText().charAt(0);
-						if(Ahorcado.checkLetterInWord(letra, palabraSelected)) {
+						// Comprobamos si la letra aparece en nuestra palabra seleccionada
+						if (Ahorcado.checkLetterInWord(letra, palabraSelected)) {
+							// Si es asi, se actualiza nuestro panel y se sustituye la raya por la letra
+							// correspondiente
 							palabraCensured = Ahorcado.updateWord(palabraSelected, palabraCensured, letra);
 							view.lblPalabra.setText(palabraCensured);
-							if(Ahorcado.isEqual(palabraSelected, palabraCensured)) {
+							// Comprobamos que la palabra se haya completado de ser asi se bloquean las
+							// teclas.
+							if (Ahorcado.isEqual(palabraSelected, palabraCensured)) {
 								for (JButton jButton1 : view.btnsTeclado) {
 									jButton1.setEnabled(false);
 								}
 							}
 						} else {
+							// En caso de error en la letra se suman los fallos y cambiamos la imagen.
 							fallos = Ahorcado.badChoice(fallos, dificultad);
-							imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado"+fallos+".jpg");
+							imagenAhorcado = new ImageIcon(
+									"src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado" + fallos
+											+ ".jpg");
 							view.labelImagen.setIcon(imagenAhorcado);
-							intentos--;	
-							view.lblNumIntentos.setText(""+intentos);
-							if(intentos == 0 || fallos == 9) {
+							intentos--;
+							view.lblNumIntentos.setText("" + intentos);
+							// En caso de llegar al máximo de fallos se desactivan los botones del teclado
+							if (intentos == 0 || fallos == 9) {
 								for (JButton jButton1 : view.btnsTeclado) {
 									jButton1.setEnabled(false);
 								}
 							}
-							
+
 						}
-						
-						
+
 					}
 				}
 			}

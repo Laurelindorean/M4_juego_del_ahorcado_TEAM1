@@ -103,11 +103,16 @@ public class HomeController {
 				WelcomeController cWelcome = new WelcomeController(aWelcome);
 			}
 			if (e.getSource() == view.btnResolver) {
-				// TODO: Resolver ahorcado
+				//Mostramos la palabra secreta
 				view.lblPalabra.setText(palabraSelected);
+				//Ponemos los intentos en 0, los fallos en 9 y los mostramos en el label junto con la imagen del ahorcado completo
 				intentos = 0;
+				fallos = 9;
 				view.lblNumIntentos.setText(""+intentos);
-				// Para desactivar todas las teclas
+				imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado"+fallos+".jpg");
+				view.labelImagen.setIcon(imagenAhorcado);
+				
+				// Si resolvemos desactivamos los botones
 				for (JButton jButton : view.btnsTeclado) {
 					jButton.setEnabled(false);
 				}

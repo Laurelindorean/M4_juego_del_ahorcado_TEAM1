@@ -1,7 +1,5 @@
 package bootcamp.M4.Team1_Juego_del_ahorcado.utils;
 
-import java.util.ArrayList;
-
 public class Ahorcado {
 
 	// Comprueba si x carácter está presente en una palabra
@@ -56,14 +54,31 @@ public class Ahorcado {
 		case 0:
 			intentos++;
 		case 1:
-			intentos = intentos + 2;
+			if (intentos < 4) {
+				intentos = intentos+2;
+			} else {
+				intentos = intentos++;
+			}
 		case 2:
-			intentos = intentos + 3;
+			intentos = intentos + 2;
 		}
 		if (intentos > 9) {
 			intentos = 9;
 		}
 		return intentos;
+	}
+	
+	// Crea intentos segun dificultad
+	public static int getIntentos(int dificultad) {
+		switch (dificultad) {
+		case 0:
+			return 10;
+		case 1:
+			return 8;
+		case 2:
+			return 6;
+		}
+		return 0;
 	}
 
 	// Funcion que compara las dos palabras por si son iguales

@@ -56,9 +56,13 @@ public class Ahorcado {
 		case 0:
 			intentos++;
 		case 1:
-			intentos = intentos + 2;
+			if (intentos < 4) {
+				intentos = intentos+2;
+			} else {
+				intentos = intentos++;
+			}
 		case 2:
-			intentos = intentos + 3;
+			intentos = intentos + 2;
 		}
 		if (intentos > 9) {
 			intentos = 9;

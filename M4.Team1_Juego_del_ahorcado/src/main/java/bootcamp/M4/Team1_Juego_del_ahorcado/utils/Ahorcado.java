@@ -66,4 +66,18 @@ public class Ahorcado {
 		return intentos;
 	}
 
+	// Funcion que compara las dos palabras por si son iguales
+	public static boolean isEqual(String wordOriginal, String wordCensured) {
+		int counter = 0;
+		for (int i = 0; i < wordOriginal.length(); i++) {
+			if (wordOriginal.charAt(i) == wordCensured.charAt(i * 2)) {
+				counter++;
+			}
+		}
+		if (counter == wordOriginal.length()) {
+			return true;
+		}
+		return false;
+	}
+
 }

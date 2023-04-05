@@ -55,7 +55,7 @@ public class HomeView extends JFrame implements ActionListener {
 		contentPane.add(panel_menu);
 
 		// Imagen inicial del ahorcado
-		imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado0.jpg");
+		imagenAhorcado = new ImageIcon("src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado9.jpg");
 		// Label contenedora de la imagen
 		labelImagen = new JLabel(imagenAhorcado);
 
@@ -93,10 +93,24 @@ public class HomeView extends JFrame implements ActionListener {
 		panel_menu.add(btnMasPalabras);
 		// -----------------------------------------------------------------------
 
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_2.setBounds(10, 169, 299, 177);
-		contentPane.add(panel_2);
+		JPanel panel_pistas = new JPanel();
+		panel_pistas.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_pistas.setBounds(10, 169, 299, 177);
+		contentPane.add(panel_pistas);
+		panel_pistas.setLayout(null);
+		
+		JLabel lblPistas = new JLabel("PISTAS");
+		lblPistas.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblPistas.setBounds(17, 18, 58, 25);
+		panel_pistas.add(lblPistas);
+		
+		JButton btnPedirPista = new JButton("Pedir Pista");
+		btnPedirPista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnPedirPista.setBounds(17, 72, 117, 29);
+		panel_pistas.add(btnPedirPista);
 
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));

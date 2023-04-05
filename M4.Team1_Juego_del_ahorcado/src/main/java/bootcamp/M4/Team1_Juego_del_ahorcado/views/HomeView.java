@@ -32,8 +32,9 @@ public class HomeView extends JFrame {
 	public JButton btnResolver;
 	public JButton btnMasPalabras;
 	public JLabel lblNumIntentos;
+	public JLabel lblPalabra;
 	private ImageIcon imagenAhorcado;
-	private JLabel labelImagen;
+	public JLabel labelImagen;
 	public ArrayList<JButton> btnsTeclado = new ArrayList<>();
 
 	private String palabra;
@@ -252,7 +253,7 @@ public class HomeView extends JFrame {
 		lblPalabraAAdivinar.setBounds(51, 6, 186, 25);
 		panel_resultado.add(lblPalabraAAdivinar);
 
-		JLabel lblPalabra = new JLabel("palabra...");
+		lblPalabra = new JLabel("palabra...");
 		lblPalabra.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPalabra.setBounds(61, 43, 176, 16);
 		panel_resultado.add(lblPalabra);

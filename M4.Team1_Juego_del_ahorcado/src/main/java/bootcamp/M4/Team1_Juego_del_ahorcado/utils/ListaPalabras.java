@@ -14,13 +14,40 @@ public class ListaPalabras {
 
 		switch (dificultad) {
 		case 0: // Dificultad facil
-			ListaPalabras.add("palabra facil");
+			ListaPalabras.add("PATO");
+			ListaPalabras.add("DADO");
+			ListaPalabras.add("PERA");
+			ListaPalabras.add("RAYA");
+			ListaPalabras.add("YOGA");
+			ListaPalabras.add("LECHE");
+			ListaPalabras.add("LLAMA");
+			ListaPalabras.add("ZORRO");
+			ListaPalabras.add("BAÑO");
+			ListaPalabras.add("BESO");
 			break;
 		case 1: // Dificultad media
-			ListaPalabras.add("palabra media");
+			ListaPalabras.add("PLANO");
+			ListaPalabras.add("CREMA");
+			ListaPalabras.add("CHICLE");
+			ListaPalabras.add("CHARCO");
+			ListaPalabras.add("ARAÑA");
+			ListaPalabras.add("CANGREJO");
+			ListaPalabras.add("CASCADA");
+			ListaPalabras.add("PULSO");
+			ListaPalabras.add("BARCO");
+			ListaPalabras.add("MOSQUITO");
 			break;
 		case 2: // Dificultad dificil
-			ListaPalabras.add("palabra dificil");
+			ListaPalabras.add("MONASTERIO");
+			ListaPalabras.add("MOTOCICLETA");
+			ListaPalabras.add("ARQUITECTURA");
+			ListaPalabras.add("CIRCUNFERENCIA");
+			ListaPalabras.add("INGREDIENTE");
+			ListaPalabras.add("BALONCESTO");
+			ListaPalabras.add("ZAPATILLAS");
+			ListaPalabras.add("MITOLOGIA");
+			ListaPalabras.add("CONSTITUCION");
+			ListaPalabras.add("CUADRILATERO");
 			break;
 		default:
 			throw new IllegalArgumentException("Nivel de dificultad incorrecto: " + dificultad);

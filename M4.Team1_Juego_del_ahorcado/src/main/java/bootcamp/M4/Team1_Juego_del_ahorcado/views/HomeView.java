@@ -36,7 +36,6 @@ public class HomeView extends JFrame {
 	private JButton btnMasPalabras;
 	private ImageIcon imagenAhorcado;
 	private JLabel labelImagen;
-	// variable de prueba
 	private ArrayList<JButton> btnsTeclado = new ArrayList<>();
 
 	private String palabra;

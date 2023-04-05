@@ -42,7 +42,7 @@ public class HomeView extends JFrame {
 	private String palabra;
 
 	public HomeView() {
-		setTitle("Juego del ahorcado!");
+		setTitle("Juego del ahorcado!"); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 100, 647, 722);
 		contentPane = new JPanel();

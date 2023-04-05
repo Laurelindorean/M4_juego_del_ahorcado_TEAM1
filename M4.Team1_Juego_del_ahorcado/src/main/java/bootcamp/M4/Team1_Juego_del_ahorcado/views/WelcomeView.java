@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import bootcamp.M4.Team1_Juego_del_ahorcado.controllers.HomeController;
 import bootcamp.M4.Team1_Juego_del_ahorcado.controllers.WelcomeController;
 
 import javax.swing.JLabel;
@@ -67,9 +68,11 @@ public class WelcomeView extends JFrame {
 		setVisible(true);
 	}
 
+	
 	// FUNCION NAVEGAR ENTRE PANTALLAS WELCOME-HOME
 	public void cambiarPantalla(int dificultad) {
+		
 		HomeView home = new HomeView();
-	}
+		HomeController homeController = new HomeController(home);	}
 
 }

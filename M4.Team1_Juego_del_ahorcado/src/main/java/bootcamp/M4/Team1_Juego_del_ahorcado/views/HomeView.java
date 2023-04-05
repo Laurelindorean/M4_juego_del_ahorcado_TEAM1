@@ -30,13 +30,13 @@ public class HomeView extends JFrame {
 	private JSeparator separator;
 	private JSeparator separator_1;
 
-	private JButton btnNuevoJuego;
-	private JButton btnDificultad;
-	private JButton btnResolver;
-	private JButton btnMasPalabras;
+	public JButton btnNuevoJuego;
+	public JButton btnDificultad;
+	public JButton btnResolver;
+	public JButton btnMasPalabras;
 	private ImageIcon imagenAhorcado;
 	private JLabel labelImagen;
-	private ArrayList<JButton> btnsTeclado = new ArrayList<>();
+	public ArrayList<JButton> btnsTeclado = new ArrayList<>();
 
 	private String palabra;
 
@@ -76,22 +76,18 @@ public class HomeView extends JFrame {
 
 		// BOTONES
 		btnNuevoJuego = new JButton("Nuevo juego");
-		btnNuevoJuego.addActionListener(btnsMenu);
 		btnNuevoJuego.setBounds(15, 50, 110, 30);
 		panel_menu.add(btnNuevoJuego);
 
 		btnDificultad = new JButton("Dificultad");
-		btnDificultad.addActionListener(btnsMenu);
 		btnDificultad.setBounds(140, 51, 110, 30);
 		panel_menu.add(btnDificultad);
 
 		btnResolver = new JButton("Resolver");
-		btnResolver.addActionListener(btnsMenu);
 		btnResolver.setBounds(15, 90, 110, 30);
 		panel_menu.add(btnResolver);
 
 		btnMasPalabras = new JButton("Mas Palabras");
-		btnMasPalabras.addActionListener(btnsMenu);
 		btnMasPalabras.setBounds(140, 90, 110, 30);
 		panel_menu.add(btnMasPalabras);
 		// -----------------------------------------------------------------------
@@ -283,32 +279,32 @@ public class HomeView extends JFrame {
 		}
 	};
 
-	// ACTION LISTENER PARA EL MENU
-	ActionListener btnsMenu = new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == btnNuevoJuego) {
-				//pongo en false para que no se dupliquen las ventanas
-				setVisible(false);
-				HomeView aMain = new HomeView();
-				
-			}
-			if (e.getSource() == btnDificultad) {
-				setVisible(false);
-				WelcomeView aWelcome = new WelcomeView();
-				WelcomeController cWelcome = new WelcomeController(aWelcome);
-			}
-			if (e.getSource() == btnResolver) {
-				// TODO: Resolver ahorcado
-				// Para desactivar todas las teclas
-				for (JButton jButton : btnsTeclado) {
-						jButton.setEnabled(false);
-					
-				}
-				
-			}
-			if (e.getSource() == btnMasPalabras) {
-				palabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
-			}
-		}
-	};
+//	// ACTION LISTENER PARA EL MENU
+//	ActionListener btnsMenu = new ActionListener() {
+//		public void actionPerformed(ActionEvent e) {
+//			if (e.getSource() == btnNuevoJuego) {
+//				//pongo en false para que no se dupliquen las ventanas
+//				setVisible(false);
+//				HomeView aMain = new HomeView();
+//				
+//			}
+//			if (e.getSource() == btnDificultad) {
+//				setVisible(false);
+//				WelcomeView aWelcome = new WelcomeView();
+//				WelcomeController cWelcome = new WelcomeController(aWelcome);
+//			}
+//			if (e.getSource() == btnResolver) {
+//				// TODO: Resolver ahorcado
+//				// Para desactivar todas las teclas
+//				for (JButton jButton : btnsTeclado) {
+//						jButton.setEnabled(false);
+//					
+//				}
+//				
+//			}
+//			if (e.getSource() == btnMasPalabras) {
+//				palabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
+//			}
+//		}
+//	};
 }

@@ -6,6 +6,10 @@ package bootcamp.M4.Team1_Juego_del_ahorcado.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
+import bootcamp.M4.Team1_Juego_del_ahorcado.views.HomeView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
 
 /**
@@ -26,10 +30,6 @@ public class WelcomeController implements ActionListener {
 		view.setVisible(true);
 	}
 
-	// INICIAR VISTA
-	public void iniciarWelcome() {
-		view.setTitle("JUEGO DEL AHORCADO");
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -46,3 +46,6 @@ public class WelcomeController implements ActionListener {
 	}
 
 }
+
+
+

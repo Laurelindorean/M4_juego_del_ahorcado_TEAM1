@@ -58,7 +58,7 @@ public class Ahorcado {
 			if (fallos < 4) {
 				fallos = fallos+2;
 			} else {
-				fallos = fallos++;
+				fallos = fallos+1;
 			}
 			break;
 		case 2:

@@ -14,6 +14,11 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+/**
+ * 
+ * @author TEAM1 (Aitor, Josep, Palmira)
+ *
+ */
 
 public class WelcomeView extends JFrame {
 

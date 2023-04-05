@@ -43,7 +43,10 @@ public class HomeController {
 		this.fallos = 0;
 		this.intentos = Ahorcado.getIntentos(dificultad);
 		this.listaPalabras = new ListaPalabras(dificultad);
+
 		this.palabraSelected = listaPalabras.getRandWord();
+		System.out.println(listaPalabras.getListaPalabras().toString());
+
 		this.palabraCensured = Ahorcado.censorWord(palabraSelected);
 		this.view.lblNumIntentos.setText("" + intentos);
 		this.imagenAhorcado = new ImageIcon(
@@ -121,6 +124,26 @@ public class HomeController {
 			}
 			if (e.getSource() == view.btnMasPalabras) {
 				nuevaPalabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
+				// añadimos la palabra pasada por teclado a nuestro ArrayList de palabras.
+				listaPalabras.addWord(nuevaPalabra);
+				// prueba para ver como se añaden las palabras
+				System.out.println(listaPalabras.getListaPalabras().toString());
+				// Reiniciamos los intentos y los fallos
+				intentos = 9;
+				fallos = 0;
+				// Activamos todas las teclas
+				for (JButton jButton : view.btnsTeclado) {
+					jButton.setEnabled(true);
+				}
+				// Y seleccionamos una palabra nueva
+				palabraSelected = listaPalabras.getRandWord();
+				palabraCensured = Ahorcado.censorWord(palabraSelected);
+				view.lblNumIntentos.setText("" + intentos);
+				imagenAhorcado = new ImageIcon(
+						"src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado" + fallos + ".jpg");
+
+				view.lblPalabra.setText(palabraCensured);
+
 			}
 		}
 	};
@@ -135,7 +158,7 @@ public class HomeController {
 					jButton.setEnabled(false);
 					// Comprobamos que haya una palabra seleccionada
 					if (!(palabraSelected == null)) {
-						// System.out.println(palabraSelected);
+						System.out.println(palabraSelected);
 						// Convertimos a Char el string obtenido del boton pulsado
 						char letra = jButton.getText().charAt(0);
 						// Comprobamos si la letra aparece en nuestra palabra seleccionada

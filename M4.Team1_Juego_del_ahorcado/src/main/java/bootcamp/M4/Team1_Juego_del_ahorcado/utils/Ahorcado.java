@@ -69,6 +69,19 @@ public class Ahorcado {
 		}
 		return intentos;
 	}
+	
+	// Crea intentos segun dificultad
+	public static int getIntentos(int dificultad) {
+		switch (dificultad) {
+		case 0:
+			return 10;
+		case 1:
+			return 8;
+		case 2:
+			return 6;
+		}
+		return 0;
+	}
 
 	// Funcion que compara las dos palabras por si son iguales
 	public static boolean isEqual(String wordOriginal, String wordCensured) {

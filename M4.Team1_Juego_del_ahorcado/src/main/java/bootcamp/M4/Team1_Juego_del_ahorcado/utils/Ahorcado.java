@@ -1,4 +1,9 @@
 package bootcamp.M4.Team1_Juego_del_ahorcado.utils;
+/**
+ * 
+ * @author TEAM1 (Aitor, Josep, Palmira)
+ *
+ */
 
 public class Ahorcado {
 

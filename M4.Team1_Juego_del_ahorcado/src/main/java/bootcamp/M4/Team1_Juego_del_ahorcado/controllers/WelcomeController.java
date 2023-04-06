@@ -13,7 +13,7 @@ import bootcamp.M4.Team1_Juego_del_ahorcado.views.HomeView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
 
 /**
- * @author aitor
+ * @author TEAM1 (Aitor, Josep, Palmira)
  *
  */
 public class WelcomeController implements ActionListener {

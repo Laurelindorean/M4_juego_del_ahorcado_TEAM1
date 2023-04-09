@@ -68,7 +68,7 @@ public class PlayAgainView extends JFrame {
 		lblintentos = new JLabel("intentos");
 		lblintentos.setHorizontalAlignment(SwingConstants.CENTER);
 		lblintentos.setFont(new Font("Dialog", Font.BOLD, 11));
-		lblintentos.setBounds(142, 78, 141, 28);
+		lblintentos.setBounds(29, 78, 375, 45);
 		contentPane.add(lblintentos);
 		setVisible(true);
 	}

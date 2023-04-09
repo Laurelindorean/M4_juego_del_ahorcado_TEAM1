@@ -181,7 +181,7 @@ public class HomeController {
 								view.setVisible(false);
 								PlayAgainView win = new PlayAgainView();
 								win.lblGanado.setVisible(true);
-								win.lblintentos.setText(intentos + " intentos");
+								win.lblintentos.setText("Has necesitado " + intentos + " intentos");
 								PlayAgainController controller = new PlayAgainController(win);
 								
 								
@@ -203,6 +203,7 @@ public class HomeController {
 								view.setVisible(false);
 								PlayAgainView lose = new PlayAgainView();
 								lose.lblPerdido.setVisible(true);
+								lose.lblintentos.setText("Te has quedado sin intentos");
 								PlayAgainController controller = new PlayAgainController(lose);
 							}
 

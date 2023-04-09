@@ -1,6 +1,9 @@
 package bootcamp.M4.Team1_Juego_del_ahorcado.utils;
-
-import java.util.ArrayList;
+/**
+ * 
+ * @author TEAM1 (Aitor, Josep, Palmira)
+ *
+ */
 
 public class Ahorcado {
 
@@ -51,19 +54,40 @@ public class Ahorcado {
 	}
 
 	// Funcion que aumenta contador de intentos segun dificultad
-	public static int badChoice(int intentos, int dificultad) {
+	public static int badChoice(int fallos, int dificultad) {
 		switch (dificultad) {
 		case 0:
-			intentos++;
+			fallos++;
+			break;
 		case 1:
-			intentos = intentos + 2;
+			if (fallos < 4) {
+				fallos = fallos+2;
+			} else {
+				fallos = fallos+1;
+			}
+			break;
 		case 2:
-			intentos = intentos + 3;
+			fallos = fallos + 2;
+			break;
 		}
-		if (intentos > 9) {
-			intentos = 9;
+		
+		if (fallos > 9) {
+			fallos = 9;
 		}
-		return intentos;
+		return fallos;
+	}
+	
+	// Crea intentos segun dificultad
+	public static int getIntentos(int dificultad) {
+		switch (dificultad) {
+		case 0:
+			return 9;
+		case 1:
+			return 7;
+		case 2:
+			return 5;
+		}
+		return 0;
 	}
 
 	// Funcion que compara las dos palabras por si son iguales

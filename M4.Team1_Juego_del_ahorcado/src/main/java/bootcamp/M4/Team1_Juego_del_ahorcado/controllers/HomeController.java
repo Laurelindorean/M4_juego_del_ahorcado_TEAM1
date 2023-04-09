@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import bootcamp.M4.Team1_Juego_del_ahorcado.models.ListaPalabras;
 import bootcamp.M4.Team1_Juego_del_ahorcado.utils.Ahorcado;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.HomeView;
+import bootcamp.M4.Team1_Juego_del_ahorcado.views.PlayAgainView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
 
 /**
@@ -23,6 +24,7 @@ import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
 public class HomeController {
 
 	// ATRIBUTO
+
 	private HomeView view;
 	private String palabraSelected;
 	private String palabraCensured;
@@ -96,8 +98,10 @@ public class HomeController {
 			if (e.getSource() == view.btnNuevoJuego) {
 				// pongo en false para que no se dupliquen las ventanas
 				view.setVisible(false);
-				HomeView aMain = new HomeView();
-				HomeController hController = new HomeController(aMain, dificultad);
+				// Si el usuario selecciona un nuevo juego se le volverá a preguntar la
+				// dificultad. Por lo que invocamos al WelcomeController 
+				WelcomeView vista = new WelcomeView();
+				WelcomeController wController = new WelcomeController(vista);
 
 			}
 			if (e.getSource() == view.btnDificultad) {
@@ -121,6 +125,7 @@ public class HomeController {
 				for (JButton jButton : view.btnsTeclado) {
 					jButton.setEnabled(false);
 				}
+				
 			}
 			if (e.getSource() == view.btnMasPalabras) {
 				nuevaPalabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
@@ -173,6 +178,13 @@ public class HomeController {
 								for (JButton jButton1 : view.btnsTeclado) {
 									jButton1.setEnabled(false);
 								}
+								view.setVisible(false);
+								PlayAgainView win = new PlayAgainView();
+								win.lblGanado.setVisible(true);
+								win.lblintentos.setText(intentos + " intentos");
+								PlayAgainController controller = new PlayAgainController(win);
+								
+								
 							}
 						} else {
 							// En caso de error en la letra se suman los fallos y cambiamos la imagen.
@@ -188,6 +200,10 @@ public class HomeController {
 								for (JButton jButton1 : view.btnsTeclado) {
 									jButton1.setEnabled(false);
 								}
+								view.setVisible(false);
+								PlayAgainView lose = new PlayAgainView();
+								lose.lblPerdido.setVisible(true);
+								PlayAgainController controller = new PlayAgainController(lose);
 							}
 
 						}

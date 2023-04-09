@@ -28,7 +28,7 @@ public class PlayAgainController implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		//si clickamos en Jugar volvemos al menú del WelcomeView he iniciamos nuevo juego
 		if(e.getSource() == this.view.btnJugar) {
 			this.view.setVisible(false);
 			WelcomeView vista1 = new WelcomeView();
@@ -37,6 +37,7 @@ public class PlayAgainController implements ActionListener{
 			
 			
 		}
+		//Si clickamos a Salir se cierra la aplicación
 		if(e.getSource()==this.view.btnSalir) {
 			System.exit(0);
 		}

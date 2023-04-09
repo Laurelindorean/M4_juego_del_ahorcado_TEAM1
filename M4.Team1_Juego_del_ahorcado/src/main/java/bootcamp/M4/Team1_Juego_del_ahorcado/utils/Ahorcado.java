@@ -1,4 +1,7 @@
 package bootcamp.M4.Team1_Juego_del_ahorcado.utils;
+
+import java.util.Random;
+
 /**
  * 
  * @author TEAM1 (Aitor, Josep, Palmira)
@@ -61,22 +64,22 @@ public class Ahorcado {
 			break;
 		case 1:
 			if (fallos < 4) {
-				fallos = fallos+2;
+				fallos = fallos + 2;
 			} else {
-				fallos = fallos+1;
+				fallos = fallos + 1;
 			}
 			break;
 		case 2:
 			fallos = fallos + 2;
 			break;
 		}
-		
+
 		if (fallos > 9) {
 			fallos = 9;
 		}
 		return fallos;
 	}
-	
+
 	// Crea intentos segun dificultad
 	public static int getIntentos(int dificultad) {
 		switch (dificultad) {
@@ -102,6 +105,46 @@ public class Ahorcado {
 			return true;
 		}
 		return false;
+	}
+
+	// Funcion que escoge una letra de la palabra original aun por descubrir
+	public static char getUnusedChar(String wordOriginal, String wordCensured) {
+		if (isEqual(wordOriginal, wordCensured)) { // Comprueba que hayan letras por descubrir
+			return (Character) null;
+		}
+		
+		// Si no, busca una letra sin usar aleatoriamente
+		Random rand = new Random();
+		while (true) {
+			int i = rand.nextInt(wordOriginal.length());
+			if (wordOriginal.charAt(i) != wordCensured.charAt(i * 2)) {
+				char letter = wordOriginal.charAt(i);
+				return letter;
+			}
+		}
+	}
+
+	// Funcion configurable con contador que agrega una letra a la palabra censurada
+	public static String addUnusedChar(String wordOriginal, String wordCensured, char l) {
+		StringBuilder sb = new StringBuilder();
+		int counter = 0;
+		for (int i = 0; i < wordOriginal.length(); i++) {
+			if (wordOriginal.charAt(i) == ' ') {
+				sb.append(' ');
+			} else if (wordOriginal.charAt(i) == l && counter == 0
+					&& wordOriginal.charAt(i) != wordCensured.charAt(i * 2)) {
+				sb.append(l);
+				counter++;
+			} else if (wordOriginal.charAt(i) == wordCensured.charAt(i * 2)) {
+				sb.append(wordOriginal.charAt(i));
+			} else {
+				sb.append('_');
+			}
+			if (i + 1 < wordOriginal.length()) {
+				sb.append(' ');
+			}
+		}
+		return sb.toString();
 	}
 
 }

@@ -13,7 +13,9 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+
 /**
  * 
  * @author TEAM1 (Aitor, Josep, Palmira)
@@ -73,12 +75,18 @@ public class WelcomeView extends JFrame {
 		setVisible(true);
 	}
 
-	
 	// FUNCION NAVEGAR ENTRE PANTALLAS WELCOME-HOME
 	public void cambiarPantalla(int dificultad) {
-		
-		//PRUEBA
+
 		HomeView home = new HomeView();
-		HomeController homeController = new HomeController(home, dificultad);	}
+		HomeController homeController = new HomeController(home, dificultad);
+	}
+
+	// FUNCION NAVEGAR ENTRE PANTALLAS WELCOME-HOME
+	public void cambiarPantalla(int dificultad, ArrayList<String> listaExtra) {
+
+		HomeView home = new HomeView();
+		HomeController homeController = new HomeController(home, dificultad, listaExtra);
+	}
 
 }

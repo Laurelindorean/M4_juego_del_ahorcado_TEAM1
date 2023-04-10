@@ -5,6 +5,7 @@ package bootcamp.M4.Team1_Juego_del_ahorcado.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -34,6 +35,7 @@ public class HomeController {
 	private int numPistas;
 	ListaPalabras listaPalabras;
 	private ImageIcon imagenAhorcado;
+	ArrayList<String> listaExtra;
 
 	public HomeController(HomeView view, int dificultad) {
 
@@ -44,9 +46,9 @@ public class HomeController {
 		this.intentos = Ahorcado.getIntentos(dificultad);
 		this.numPistas = Ahorcado.getPistas(dificultad);
 		this.listaPalabras = new ListaPalabras(dificultad);
+		this.listaExtra = new ArrayList<>();
 
 		this.palabraSelected = listaPalabras.getRandWord();
-		System.out.println(listaPalabras.getListaPalabras().toString());
 
 		this.palabraCensured = Ahorcado.censorWord(palabraSelected);
 		this.view.lblNumIntentos.setText("" + intentos);
@@ -91,6 +93,16 @@ public class HomeController {
 			jButton.addActionListener(btnTeclado);
 		}
 	}
+	
+	public HomeController(HomeView view, int dificultad, ArrayList<String> listaExtra) {
+		this(view, dificultad);
+		this.listaExtra = listaExtra;
+		listaPalabras.addAllToListaPalabras(listaExtra);
+		this.palabraSelected = listaPalabras.getRandWord();
+		this.palabraCensured = Ahorcado.censorWord(palabraSelected);
+		System.out.println(listaPalabras.getListaPalabras().toString());
+		this.view.lblPalabra.setText(palabraCensured);
+	}
 
 	// ACTION LISTENER PARA EL MENU
 	ActionListener btnsMenu = new ActionListener() {
@@ -101,7 +113,7 @@ public class HomeController {
 				// Si el usuario selecciona un nuevo juego se le volverá a preguntar la
 				// dificultad. Por lo que invocamos al WelcomeController
 				WelcomeView vista = new WelcomeView();
-				WelcomeController wController = new WelcomeController(vista);
+				WelcomeController wController = new WelcomeController(vista, listaExtra);
 
 			}
 			if (e.getSource() == view.btnDificultad) {
@@ -130,25 +142,9 @@ public class HomeController {
 			if (e.getSource() == view.btnMasPalabras) {
 				nuevaPalabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
 				// añadimos la palabra pasada por teclado a nuestro ArrayList de palabras.
-				listaPalabras.addWord(nuevaPalabra);
+				listaExtra.add(nuevaPalabra);
 				// prueba para ver como se añaden las palabras
 				System.out.println(listaPalabras.getListaPalabras().toString());
-				// Reiniciamos los intentos y los fallos
-				intentos = 9;
-				fallos = 0;
-				// Activamos todas las teclas
-				for (JButton jButton : view.btnsTeclado) {
-					jButton.setEnabled(true);
-				}
-				// Y seleccionamos una palabra nueva
-				palabraSelected = listaPalabras.getRandWord();
-				palabraCensured = Ahorcado.censorWord(palabraSelected);
-				view.lblNumIntentos.setText("" + intentos);
-				imagenAhorcado = new ImageIcon(
-						"src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado" + fallos + ".jpg");
-
-				view.lblPalabra.setText(palabraCensured);
-
 			}
 			if (e.getSource() == view.btnPedirPista) {
 				// compruebo la cantidad de intentos

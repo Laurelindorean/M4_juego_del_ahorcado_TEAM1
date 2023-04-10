@@ -2,6 +2,7 @@ package bootcamp.M4.Team1_Juego_del_ahorcado.models;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 /**
  * 
  * @author TEAM1 (Aitor, Josep, Palmira)
@@ -57,7 +58,7 @@ public class ListaPalabras {
 			throw new IllegalArgumentException("Nivel de dificultad incorrecto: " + dificultad);
 		}
 	}
-	
+
 	// Getter
 	public ArrayList<String> getListaPalabras() {
 		return ListaPalabras;
@@ -67,15 +68,22 @@ public class ListaPalabras {
 	public void addWord(String word) {
 		word = word.toUpperCase();
 		ListaPalabras.add(word);
+		return;
 	}
-	
+
 	// Devuelve palabra aleatoria de la lista
 	public String getRandWord() {
 		rand = new Random();
 		int i = rand.nextInt(ListaPalabras.size());
 		return ListaPalabras.get(i);
 	}
-	
-	
+
+	// Agrega listado de palabras al listado actual
+	public void addAllToListaPalabras(ArrayList<String> extraPalabras) {
+		for (int i = 0; i < extraPalabras.size(); i++) {
+			addWord(extraPalabras.get(i));
+		}
+		return;
+	}
 
 }

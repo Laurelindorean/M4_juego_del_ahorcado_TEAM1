@@ -8,10 +8,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import bootcamp.M4.Team1_Juego_del_ahorcado.models.ListaPalabras;
 import bootcamp.M4.Team1_Juego_del_ahorcado.utils.Ahorcado;
+import bootcamp.M4.Team1_Juego_del_ahorcado.views.AditionalView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.HomeView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.PlayAgainView;
 import bootcamp.M4.Team1_Juego_del_ahorcado.views.WelcomeView;
@@ -34,6 +36,8 @@ public class HomeController {
 	private int numPistas;
 	ListaPalabras listaPalabras;
 	private ImageIcon imagenAhorcado;
+	private AditionalView view2;
+	
 
 	public HomeController(HomeView view, int dificultad) {
 
@@ -90,6 +94,8 @@ public class HomeController {
 		for (JButton jButton : view.btnsTeclado) {
 			jButton.addActionListener(btnTeclado);
 		}
+		this.view.menuAcerca.addActionListener(btnExtra);
+		this.view.MenuJugar.addActionListener(btnExtra);
 	}
 
 	// ACTION LISTENER PARA EL MENU
@@ -150,6 +156,7 @@ public class HomeController {
 				view.lblPalabra.setText(palabraCensured);
 
 			}
+		
 			if (e.getSource() == view.btnPedirPista) {
 				// compruebo la cantidad de intentos
 				if (numPistas == 0) {
@@ -180,6 +187,7 @@ public class HomeController {
 						win.lblintentos.setText("Has necesitado " + intentos + " intentos");
 						PlayAgainController controller = new PlayAgainController(win);
 					}
+					
 				}
 			}
 		}
@@ -245,6 +253,32 @@ public class HomeController {
 			}
 
 		}
+	};
+
+	ActionListener btnExtra = new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == view.menuAcerca) {
+				
+				AditionalView acerca = new AditionalView();
+				AditionalController adicional = new AditionalController(acerca);
+				acerca.lblAcerca.setVisible(true);
+				acerca.textAcerca.setVisible(true);
+				System.out.println(acerca.contentAdicional.isShowing());
+				
+					
+			}
+			if (e.getSource() == view.MenuJugar) {
+				// AditionalController adicional = new AditionalController(view2);
+				AditionalView jugar = new AditionalView();
+				AditionalController adicional = new AditionalController(jugar);
+				jugar.lblComoJugar.setVisible(true);
+				jugar.textJugar.setVisible(true);
+				
+			}
+		}
+
 	};
 
 }

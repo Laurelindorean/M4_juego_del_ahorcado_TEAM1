@@ -31,6 +31,8 @@ public class HomeView extends JFrame {
 			btnP, btnQ, btnR, btnS, btnT, btnU, btnV, btnW, btnX, btnY, btnZ;
 	private JSeparator separator;
 	private JSeparator separator_1;
+	
+	public JButton btnPedirPista;
 
 	public JButton btnNuevoJuego;
 	public JButton btnDificultad;
@@ -41,8 +43,6 @@ public class HomeView extends JFrame {
 	private ImageIcon imagenAhorcado;
 	public JLabel labelImagen;
 	public ArrayList<JButton> btnsTeclado = new ArrayList<>();
-
-	private String palabra;
 
 	public HomeView() {
 		setTitle("Juego del ahorcado!");
@@ -107,11 +107,7 @@ public class HomeView extends JFrame {
 		lblPistas.setBounds(119, 6, 58, 25);
 		panel_pistas.add(lblPistas);
 
-		JButton btnPedirPista = new JButton("Pedir Pista");
-		btnPedirPista.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		btnPedirPista = new JButton("Pedir Pista");
 		btnPedirPista.setBounds(17, 32, 99, 29);
 		panel_pistas.add(btnPedirPista);
 

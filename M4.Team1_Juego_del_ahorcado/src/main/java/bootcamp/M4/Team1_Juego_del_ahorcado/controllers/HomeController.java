@@ -5,7 +5,6 @@ package bootcamp.M4.Team1_Juego_del_ahorcado.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -35,8 +34,6 @@ public class HomeController {
 	ListaPalabras listaPalabras;
 	private ImageIcon imagenAhorcado;
 
-	// private ArrayList<JButton> btnsTeclado = new ArrayList<>();
-	//
 	public HomeController(HomeView view, int dificultad) {
 
 		// INICIAR JUEGO
@@ -60,6 +57,7 @@ public class HomeController {
 		this.view.btnDificultad.addActionListener(btnsMenu);
 		this.view.btnResolver.addActionListener(btnsMenu);
 		this.view.btnMasPalabras.addActionListener(btnsMenu);
+		this.view.btnPedirPista.addActionListener(btnsMenu);
 		this.view.btnsTeclado.add(view.btnA);
 		this.view.btnsTeclado.add(view.btnB);
 		this.view.btnsTeclado.add(view.btnC);
@@ -149,6 +147,35 @@ public class HomeController {
 
 				view.lblPalabra.setText(palabraCensured);
 
+			}
+			if(e.getSource() == view.btnPedirPista) {
+				//compruebo la cantidad de intentos
+				if(intentos == 1) {
+					JOptionPane.showMessageDialog(null, "SI HACES ESTO MUERES");
+				} else {
+					char c = Ahorcado.getUnusedChar(palabraSelected, palabraCensured);
+					palabraCensured = Ahorcado.addUnusedChar(palabraSelected, palabraCensured, c);
+					view.lblPalabra.setText(palabraCensured);
+					intentos--;
+					view.lblNumIntentos.setText("" + intentos);
+					fallos = Ahorcado.badChoice(fallos, dificultad);
+					imagenAhorcado = new ImageIcon(
+							"src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado" + fallos
+									+ ".jpg");
+					view.labelImagen.setIcon(imagenAhorcado);
+				}
+				
+				
+				if (Ahorcado.isEqual(palabraSelected, palabraCensured)) {
+					for (JButton jButton1 : view.btnsTeclado) {
+						jButton1.setEnabled(false);
+					}
+					view.setVisible(false);
+					PlayAgainView win = new PlayAgainView();
+					win.lblGanado.setVisible(true);
+					win.lblintentos.setText("Has necesitado " + intentos + " intentos");
+					PlayAgainController controller = new PlayAgainController(win);
+				}
 			}
 		}
 	};

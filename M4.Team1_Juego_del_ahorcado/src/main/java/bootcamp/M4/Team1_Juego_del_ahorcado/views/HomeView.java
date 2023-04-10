@@ -17,6 +17,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JMenu;
 /**
  * 
  * @author TEAM1 (Aitor, Josep, Palmira)
@@ -43,11 +46,26 @@ public class HomeView extends JFrame {
 	private ImageIcon imagenAhorcado;
 	public JLabel labelImagen;
 	public ArrayList<JButton> btnsTeclado = new ArrayList<>();
+	private JMenuBar menuBar;
+	public JMenuItem MenuJugar;
+	public JMenuItem menuAcerca;
 
 	public HomeView() {
 		setTitle("Juego del ahorcado!");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(300, 100, 647, 722);
+		setBounds(300, 100, 648, 741);
+		
+		menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu menuAyuda = new JMenu("Ayuda");
+		menuBar.add(menuAyuda);
+		
+		MenuJugar = new JMenuItem("Como Jugar");
+		menuAyuda.add(MenuJugar);
+		
+		menuAcerca = new JMenuItem("Acerca de...");
+		menuAyuda.add(menuAcerca);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -122,7 +140,7 @@ public class HomeView extends JFrame {
 
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_3.setBounds(10, 357, 299, 315);
+		panel_3.setBounds(10, 356, 299, 316);
 		contentPane.add(panel_3);
 
 		panel_3.setLayout(null);

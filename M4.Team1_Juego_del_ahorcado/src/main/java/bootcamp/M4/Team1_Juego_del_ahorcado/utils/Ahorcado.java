@@ -92,6 +92,19 @@ public class Ahorcado {
 		}
 		return 0;
 	}
+	
+	// Crea cantidad de pistas segun dificultad
+	public static int getPistas(int dificultad) {
+		switch (dificultad) {
+		case 0:
+			return 1;
+		case 1:
+			return 2;
+		case 2:
+			return 3;
+		}
+		return 0;
+	}
 
 	// Funcion que compara las dos palabras por si son iguales
 	public static boolean isEqual(String wordOriginal, String wordCensured) {

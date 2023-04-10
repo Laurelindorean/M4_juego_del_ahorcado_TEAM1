@@ -31,6 +31,7 @@ public class HomeController {
 	private int dificultad;
 	private int fallos;
 	private int intentos;
+	private int numPistas;
 	ListaPalabras listaPalabras;
 	private ImageIcon imagenAhorcado;
 
@@ -41,6 +42,7 @@ public class HomeController {
 		this.dificultad = dificultad;
 		this.fallos = 0;
 		this.intentos = Ahorcado.getIntentos(dificultad);
+		this.numPistas = Ahorcado.getPistas(dificultad);
 		this.listaPalabras = new ListaPalabras(dificultad);
 
 		this.palabraSelected = listaPalabras.getRandWord();
@@ -97,7 +99,7 @@ public class HomeController {
 				// pongo en false para que no se dupliquen las ventanas
 				view.setVisible(false);
 				// Si el usuario selecciona un nuevo juego se le volverá a preguntar la
-				// dificultad. Por lo que invocamos al WelcomeController 
+				// dificultad. Por lo que invocamos al WelcomeController
 				WelcomeView vista = new WelcomeView();
 				WelcomeController wController = new WelcomeController(vista);
 
@@ -123,7 +125,7 @@ public class HomeController {
 				for (JButton jButton : view.btnsTeclado) {
 					jButton.setEnabled(false);
 				}
-				
+
 			}
 			if (e.getSource() == view.btnMasPalabras) {
 				nuevaPalabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
@@ -148,33 +150,36 @@ public class HomeController {
 				view.lblPalabra.setText(palabraCensured);
 
 			}
-			if(e.getSource() == view.btnPedirPista) {
-				//compruebo la cantidad de intentos
-				if(intentos == 1) {
-					JOptionPane.showMessageDialog(null, "SI HACES ESTO MUERES");
+			if (e.getSource() == view.btnPedirPista) {
+				// compruebo la cantidad de intentos
+				if (numPistas == 0) {
+					JOptionPane.showMessageDialog(null, "NO TE QUEDAN PISTAS");
 				} else {
-					char c = Ahorcado.getUnusedChar(palabraSelected, palabraCensured);
-					palabraCensured = Ahorcado.addUnusedChar(palabraSelected, palabraCensured, c);
-					view.lblPalabra.setText(palabraCensured);
-					intentos--;
-					view.lblNumIntentos.setText("" + intentos);
-					fallos = Ahorcado.badChoice(fallos, dificultad);
-					imagenAhorcado = new ImageIcon(
-							"src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado" + fallos
-									+ ".jpg");
-					view.labelImagen.setIcon(imagenAhorcado);
-				}
-				
-				
-				if (Ahorcado.isEqual(palabraSelected, palabraCensured)) {
-					for (JButton jButton1 : view.btnsTeclado) {
-						jButton1.setEnabled(false);
+					numPistas--;
+					if (intentos == 1) {
+						JOptionPane.showMessageDialog(null, "SI HACES ESTO MUERES");
+					} else {
+						char c = Ahorcado.getUnusedChar(palabraSelected, palabraCensured);
+						palabraCensured = Ahorcado.addUnusedChar(palabraSelected, palabraCensured, c);
+						view.lblPalabra.setText(palabraCensured);
+						intentos--;
+						view.lblNumIntentos.setText("" + intentos);
+						fallos = Ahorcado.badChoice(fallos, dificultad);
+						imagenAhorcado = new ImageIcon(
+								"src/main/java/bootcamp/M4/Team1_Juego_del_ahorcado/assets/ahorcado" + fallos + ".jpg");
+						view.labelImagen.setIcon(imagenAhorcado);
 					}
-					view.setVisible(false);
-					PlayAgainView win = new PlayAgainView();
-					win.lblGanado.setVisible(true);
-					win.lblintentos.setText("Has necesitado " + intentos + " intentos");
-					PlayAgainController controller = new PlayAgainController(win);
+
+					if (Ahorcado.isEqual(palabraSelected, palabraCensured)) {
+						for (JButton jButton1 : view.btnsTeclado) {
+							jButton1.setEnabled(false);
+						}
+						view.setVisible(false);
+						PlayAgainView win = new PlayAgainView();
+						win.lblGanado.setVisible(true);
+						win.lblintentos.setText("Has necesitado " + intentos + " intentos");
+						PlayAgainController controller = new PlayAgainController(win);
+					}
 				}
 			}
 		}
@@ -210,8 +215,7 @@ public class HomeController {
 								win.lblGanado.setVisible(true);
 								win.lblintentos.setText("Has necesitado " + intentos + " intentos");
 								PlayAgainController controller = new PlayAgainController(win);
-								
-								
+
 							}
 						} else {
 							// En caso de error en la letra se suman los fallos y cambiamos la imagen.

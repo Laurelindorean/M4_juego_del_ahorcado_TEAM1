@@ -148,8 +148,7 @@ public class HomeController {
 				nuevaPalabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
 				// añadimos la palabra pasada por teclado a nuestro ArrayList de palabras.
 				listaExtra.add(nuevaPalabra);
-				// prueba para ver como se añaden las palabras
-				System.out.println(listaPalabras.getListaPalabras().toString());
+				
 			}
 		
 			if (e.getSource() == view.btnPedirPista) {
@@ -249,24 +248,23 @@ public class HomeController {
 
 		}
 	};
-
+	//Función para los botones del menú superior
 	ActionListener btnExtra = new ActionListener() {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			//Cargamos la funcionalidad del menu Acerca y lo hacemos visible porque por defecto está oculto
 			if (e.getSource() == view.menuAcerca) {
-				
 				AditionalView acerca = new AditionalView();
+				//Inicializamos el controlador para cargar la vista
 				AditionalController adicional = new AditionalController(acerca);
 				acerca.lblAcerca.setVisible(true);
-				acerca.textAcerca.setVisible(true);
-				System.out.println(acerca.contentAdicional.isShowing());
-				
-					
+				acerca.textAcerca.setVisible(true);		
 			}
+			//Cargamos la funcionalidad del menu Como jugar y lo hacemos visible porque por defecto está oculto
 			if (e.getSource() == view.MenuJugar) {
-				// AditionalController adicional = new AditionalController(view2);
 				AditionalView jugar = new AditionalView();
+				//Inicializamos el controlador para cargar la vista
 				AditionalController adicional = new AditionalController(jugar);
 				jugar.lblComoJugar.setVisible(true);
 				jugar.textJugar.setVisible(true);

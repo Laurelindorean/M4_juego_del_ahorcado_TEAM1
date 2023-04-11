@@ -105,7 +105,6 @@ public class HomeController {
 		listaPalabras.addAllToListaPalabras(listaExtra);
 		this.palabraSelected = listaPalabras.getRandWord();
 		this.palabraCensured = Ahorcado.censorWord(palabraSelected);
-		System.out.println(listaPalabras.getListaPalabras().toString());
 		this.view.lblPalabra.setText(palabraCensured);
 	}
 
@@ -148,8 +147,6 @@ public class HomeController {
 				nuevaPalabra = JOptionPane.showInputDialog("Escribe la nueva palabra");
 				// añadimos la palabra pasada por teclado a nuestro ArrayList de palabras.
 				listaExtra.add(nuevaPalabra);
-				// prueba para ver como se añaden las palabras
-				System.out.println(listaPalabras.getListaPalabras().toString());
 			}
 		
 			if (e.getSource() == view.btnPedirPista) {
@@ -198,7 +195,6 @@ public class HomeController {
 					jButton.setEnabled(false);
 					// Comprobamos que haya una palabra seleccionada
 					if (!(palabraSelected == null)) {
-						System.out.println(palabraSelected);
 						// Convertimos a Char el string obtenido del boton pulsado
 						char letra = jButton.getText().charAt(0);
 						// Comprobamos si la letra aparece en nuestra palabra seleccionada
@@ -260,7 +256,6 @@ public class HomeController {
 				AditionalController adicional = new AditionalController(acerca);
 				acerca.lblAcerca.setVisible(true);
 				acerca.textAcerca.setVisible(true);
-				System.out.println(acerca.contentAdicional.isShowing());
 				
 					
 			}

@@ -98,7 +98,7 @@ public class HomeController {
 		this.view.menuAcerca.addActionListener(btnExtra);
 		this.view.MenuJugar.addActionListener(btnExtra);
 	}
-	
+
 	public HomeController(HomeView view, int dificultad, ArrayList<String> listaExtra) {
 		this(view, dificultad);
 		this.listaExtra = listaExtra;
@@ -148,7 +148,7 @@ public class HomeController {
 				// añadimos la palabra pasada por teclado a nuestro ArrayList de palabras.
 				listaExtra.add(nuevaPalabra);
 			}
-		
+
 			if (e.getSource() == view.btnPedirPista) {
 				// compruebo la cantidad de intentos
 				if (numPistas == 0) {
@@ -179,7 +179,7 @@ public class HomeController {
 						win.lblintentos.setText("Has necesitado " + intentos + " intentos");
 						PlayAgainController controller = new PlayAgainController(win);
 					}
-					
+
 				}
 			}
 		}
@@ -245,27 +245,30 @@ public class HomeController {
 
 		}
 	};
-
+	// Función para los botones del menú superior
 	ActionListener btnExtra = new ActionListener() {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			// Cargamos la funcionalidad del menu Acerca y lo hacemos visible porque por
+			// defecto está oculto
 			if (e.getSource() == view.menuAcerca) {
-				
 				AditionalView acerca = new AditionalView();
+				// Inicializamos el controlador para cargar la vista
 				AditionalController adicional = new AditionalController(acerca);
 				acerca.lblAcerca.setVisible(true);
 				acerca.textAcerca.setVisible(true);
-				
-					
+
 			}
+			// Cargamos la funcionalidad del menu Como jugar y lo hacemos visible porque por
+			// defecto está oculto
 			if (e.getSource() == view.MenuJugar) {
-				// AditionalController adicional = new AditionalController(view2);
 				AditionalView jugar = new AditionalView();
+				// Inicializamos el controlador para cargar la vista
 				AditionalController adicional = new AditionalController(jugar);
 				jugar.lblComoJugar.setVisible(true);
 				jugar.textJugar.setVisible(true);
-				
+
 			}
 		}
 
